@@ -1,0 +1,1438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<title>PUBLISH OR PERISH</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+CiAgPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTQiIGZpbGw9IiMzYTI3MTIiLz4KICA8Y2lyY2xlIGN4PSIzMiIgY3k9IjM0IiByPSIyMyIgZmlsbD0iIzA1MDUwNSIvPgogIDxjaXJjbGUgY3g9IjMyIiBjeT0iMzQiIHI9IjIzIiBmaWxsPSJ1cmwoI2cpIi8+CiAgPGRlZnM+CiAgICA8cmFkaWFsR3JhZGllbnQgaWQ9ImciIGN4PSIzNSUiIGN5PSIzMCUiIHI9Ijc1JSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiM3NzciLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIzNSUiIHN0b3AtY29sb3I9IiMyMjIiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMDAwIi8+CiAgICA8L3JhZGlhbEdyYWRpZW50PgogIDwvZGVmcz4KPC9zdmc+Cg==">
+<style>
+:root{
+  --paper: #f7f2e6;
+  --paper-edge: #e7dcc2;
+  --ink: #1d1a15;
+  --ink-soft: #55504a;
+  --maroon: #7a2331;
+  --maroon-dark: #501420;
+  --gold: #9c7a33;
+  --ok: #2f6b46;
+  --slot-w: clamp(30px, 7.4vw, 48px);
+  --peg-gap: clamp(6px, 1.6vw, 12px);
+}
+*{box-sizing:border-box; -webkit-tap-highlight-color: transparent;}
+html,body{height:100%;}
+body{
+  margin:0;
+  min-height:100vh;
+  font-family: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  background: var(--paper);
+  background-image:
+    repeating-linear-gradient(rgba(0,0,0,0.02) 0px, rgba(0,0,0,0.02) 1px, transparent 1px, transparent 28px);
+  color: var(--ink);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  padding: env(safe-area-inset-top,14px) env(safe-area-inset-right,10px) env(safe-area-inset-bottom,10px) env(safe-area-inset-left,10px);
+  overflow-x:hidden;
+}
+
+.lang-btn{
+  position:fixed; top:10px; right:10px; z-index:15;
+  font-family: Georgia, serif; font-weight:700; font-size:0.75rem;
+  letter-spacing:0.5px;
+  padding:7px 12px; border-radius:3px;
+  border: 1.5px solid var(--ink);
+  background: #fff;
+  color: var(--ink);
+  cursor:pointer;
+  box-shadow: 2px 2px 0 rgba(29,26,21,0.4);
+}
+.lang-btn:active{ transform: translate(1px,1px); }
+
+.kicker{
+  font-family: Georgia, serif;
+  font-size: 0.72rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--maroon);
+  text-align:center;
+  margin-top: 10px;
+}
+h1.researcher-name{
+  font-size: clamp(1.5rem, 5.5vw, 2.4rem);
+  font-weight: 700;
+  font-style: italic;
+  margin: 4px 0 4px;
+  text-align:center;
+  color: var(--ink);
+  max-width: 90vw;
+}
+.orcid-line{
+  text-align:center;
+  font-size:0.8rem;
+  color: var(--ink-soft);
+  margin-bottom: 10px;
+}
+.orcid-line a{ color: var(--maroon); text-decoration: none; border-bottom: 1px dotted var(--maroon); }
+.cv-divider{
+  width: min(480px, 90vw);
+  border: none;
+  border-top: 2px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  height: 3px;
+  margin: 4px 0 18px;
+}
+
+/* ---------- generic paper card ---------- */
+.paper-card{
+  position:relative;
+  background: #fffdf8;
+  border-radius: 3px;
+  padding: 20px;
+  box-shadow:
+    0 1px 0 var(--paper-edge),
+    0 12px 28px rgba(30,20,10,0.18);
+  border: 1px solid var(--paper-edge);
+}
+.paper-card h2{ margin-top:0; font-style: italic; }
+.paper-card p{ font-size:0.88rem; line-height:1.55; }
+
+/* ================= START / HELP ================= */
+#startScreen, #helpScreen{ width: min(560px, 94vw); margin-bottom: 20px; }
+#helpScreen{ display:none; }
+.demo-badge{
+  display:inline-block; width:18px; height:18px; border-radius:5px;
+  vertical-align:middle; margin-right:6px; border:1px solid var(--paper-edge);
+  background: var(--maroon);
+}
+.demo-fpeg{
+  display:inline-block; width:14px; height:14px; border-radius:50%;
+  vertical-align:middle; margin-right:6px;
+  box-shadow: inset 0 0 0 1.4px var(--ink);
+}
+.demo-fpeg.black{ background: var(--ink); box-shadow:none; }
+
+/* ================= SETUP SCREEN ================= */
+#setupScreen{ width: min(560px, 94vw); margin-bottom: 20px; display:none; }
+
+.field-group{ margin-bottom: 14px; }
+.field-group > label{
+  display:block;
+  font-weight:700;
+  font-size:0.95rem;
+  margin-bottom: 4px;
+}
+.field-group .hint{
+  display:block;
+  font-weight:400;
+  font-style: italic;
+  font-size:0.75rem;
+  color: var(--ink-soft);
+  margin-bottom:8px;
+}
+.orcid-row{ display:flex; gap:8px; flex-wrap:wrap; }
+.orcid-row input[type=text]{
+  flex: 1 1 200px;
+  min-width:0;
+  padding:9px 10px;
+  border-radius:3px;
+  border:1.5px solid var(--ink);
+  background:#fff;
+  color: var(--ink);
+  font-size:0.95rem;
+  font-family: 'Courier New', monospace;
+  letter-spacing:0.5px;
+}
+.fetch-status{
+  margin-top:8px;
+  font-size:0.8rem;
+  min-height: 1.2em;
+}
+.fetch-status.ok{ color: var(--ok); }
+.fetch-status.err{ color: var(--maroon); font-weight:700; }
+.fetch-status.pending{ color: var(--ink-soft); font-style: italic; }
+
+.search-toggle{
+  background:none; border:none; padding:0; margin-top:6px;
+  color: var(--maroon); font-family: inherit; font-size:0.78rem;
+  text-decoration: underline; cursor:pointer;
+}
+.search-box{ display:none; margin-top:10px; padding-top:10px; border-top: 1px dotted var(--paper-edge); }
+.search-row{ display:flex; gap:8px; flex-wrap:wrap; }
+.search-row input[type=text]{
+  flex: 1 1 180px; min-width:0;
+  padding:8px 10px; border-radius:3px;
+  border:1.5px solid var(--ink); background:#fff; color:var(--ink);
+  font-size:0.9rem; font-family: inherit;
+}
+.search-results{ margin-top:8px; }
+.search-result{
+  display:flex; justify-content:space-between; align-items:center; gap:8px;
+  padding:7px 8px; border-bottom: 1px dotted var(--paper-edge);
+  font-size:0.82rem;
+}
+.search-result .info{ flex:1 1 auto; }
+.search-result .inst{ color: var(--ink-soft); font-size:0.72rem; font-style:italic; }
+.search-result button{
+  flex: 0 0 auto; font-size:0.72rem; padding:5px 9px;
+}
+.search-result .no-orcid{ color: var(--ink-soft); font-size:0.72rem; font-style:italic; }
+
+.field{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 10px;
+  margin: 10px 0;
+  background: rgba(122,35,49,0.04);
+  border-radius: 3px;
+  padding: 8px 12px;
+  border: 1px solid var(--paper-edge);
+}
+.field label{
+  font-weight:600;
+  color: var(--ink);
+  font-size: 0.9rem;
+  flex: 1 1 auto;
+}
+.field .hint{
+  display:block;
+  font-weight:400;
+  font-style: italic;
+  font-size:0.7rem;
+  color: var(--ink-soft);
+  margin-top:2px;
+}
+.stepper{ display:flex; align-items:center; gap:8px; flex: 0 0 auto; }
+.stepper button{
+  width:30px;height:30px;
+  border-radius:50%;
+  border: 1.5px solid var(--ink);
+  background: #fff;
+  color: var(--ink);
+  font-size:1.05rem;
+  font-weight:bold;
+  cursor:pointer;
+  line-height:1;
+}
+.stepper button:active{ transform: scale(0.92); }
+.stepper output{ min-width: 2.4em; text-align:center; font-weight:700; font-size:1rem; }
+
+input.chk{ width:22px; height:22px; accent-color: var(--maroon); cursor:pointer; flex:0 0 auto; }
+
+.segmented{ display:flex; gap:6px; flex:0 0 auto; }
+.segmented button{
+  border:1.5px solid var(--ink); background:#fff; color:var(--ink);
+  border-radius:3px; padding:6px 14px; font-weight:700; font-family:inherit;
+  cursor:pointer; font-size:0.9rem;
+}
+.segmented button.active{ background: var(--maroon); color:#fdf6ec; border-color: var(--maroon-dark); }
+
+.btn{
+  border:1.5px solid var(--ink);
+  border-radius:3px;
+  padding:9px 14px;
+  font-weight:700;
+  font-size:0.8rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  cursor:pointer;
+  background: #fff;
+  color: var(--ink);
+  font-family: inherit;
+  box-shadow: 2px 2px 0 rgba(29,26,21,0.5);
+}
+.btn:active{ transform: translate(1px,1px); box-shadow: 1px 1px 0 rgba(29,26,21,0.5); }
+.btn.primary{ background: var(--maroon); color:#fdf6ec; border-color: var(--maroon-dark); }
+.btn.danger{ background: #fff; color: var(--maroon); border-color: var(--maroon); }
+.btn:disabled{ opacity:0.4; cursor:not-allowed; }
+.btn-row{ display:flex; gap:10px; justify-content:center; margin-top:16px; flex-wrap:wrap; }
+.warn{
+  font-size:0.78rem; color: var(--maroon);
+  border-left:3px solid var(--maroon);
+  padding:6px 10px; margin-top:8px; display:none;
+}
+
+/* ================= GAME SCREEN ================= */
+#gameScreen{ display:none; width:min(640px, 96vw); flex-direction:column; align-items:center; }
+.topbar{
+  width:100%;
+  display:flex; justify-content:flex-end; align-items:center; gap:8px;
+  margin-bottom:8px; flex-wrap:wrap;
+  font-size:0.78rem;
+  font-family: 'Courier New', monospace;
+  color: var(--ink-soft);
+}
+.timer-wrap{
+  width:100%; height:8px;
+  background: rgba(29,26,21,0.12);
+  border-radius:4px; overflow:hidden;
+  margin: 4px 0 10px;
+  display:none;
+}
+.timer-bar{ height:100%; width:100%; background: var(--maroon); transition: width 1s linear, background .3s; }
+
+.board-frame{
+  width:100%;
+  padding: 16px;
+  border-radius: 4px;
+  background: #fffdf8;
+  border: 1px solid var(--paper-edge);
+  box-shadow: 0 12px 28px rgba(30,20,10,0.18);
+}
+.rank-labels{
+  display:flex; justify-content:center; gap: var(--peg-gap);
+  padding: 0 4px;
+}
+.rank-labels span{
+  width: var(--slot-w);
+  text-align:center;
+  font-size:0.6rem;
+  font-weight:700;
+  color: var(--ink-soft);
+  text-transform:uppercase;
+  letter-spacing:0.3px;
+}
+.secret-row{
+  display:flex; align-items:center; justify-content:center; gap: var(--peg-gap);
+  padding: 8px; margin-bottom:12px;
+}
+.rows-scroll{ max-height: 42vh; overflow-y:auto; padding: 4px 2px; }
+.row{
+  display:flex; align-items:center; gap: 10px;
+  padding: 6px 6px; border-radius: 3px; margin-bottom: 4px;
+  border-bottom: 1px dotted var(--paper-edge);
+}
+.row.active{ background: rgba(122,35,49,0.05); }
+.row-num{
+  width: 1.6em; text-align:center; font-size:0.72rem;
+  color: var(--ink-soft); font-weight:700; flex: 0 0 auto;
+  font-family: 'Courier New', monospace;
+}
+.slots{ display:flex; gap: var(--peg-gap); flex: 1 1 auto; flex-wrap:nowrap; }
+.feedback{ display:grid; grid-template-columns: repeat(2, 1fr); gap: 3px; flex: 0 0 auto; width: calc(2*10px + 1*3px); }
+.fpeg{
+  width:9px;height:9px;border-radius:50%;
+  background: transparent;
+  box-shadow: inset 0 0 0 1px rgba(29,26,21,0.25);
+}
+.fpeg.black{ background: var(--ink); box-shadow:none; }
+.fpeg.white{ background: transparent; box-shadow: inset 0 0 0 1.4px var(--ink); }
+
+.slot{
+  width: var(--slot-w); height: var(--slot-w);
+  border-radius: 6px;
+  border: 1.5px dashed var(--paper-edge);
+  background: #fbf7ee;
+  position:relative;
+  cursor:pointer;
+  flex: 0 0 auto;
+  display:flex; align-items:center; justify-content:center;
+  overflow:hidden;
+}
+.slot.filled{ border-style: solid; border-color: var(--ink); }
+.slot img{ width:78%; height:78%; object-fit:contain; border-radius:4px; }
+
+/* ================= PALETTE / CONTROLS ================= */
+.controls{
+  width:100%; margin-top: 10px;
+  display:flex; flex-direction:column; align-items:center; gap:10px;
+  position:sticky; bottom: env(safe-area-inset-bottom,0px); padding-bottom: 4px;
+}
+.palette{
+  display:flex; gap: 8px; flex-wrap:wrap; justify-content:center;
+  background: #fffdf8;
+  border: 1.5px solid var(--ink);
+  border-radius: 6px;
+  padding: 10px 12px;
+  box-shadow: 3px 3px 0 rgba(29,26,21,0.3);
+  max-width: 100%;
+}
+.swatch{
+  display:flex; flex-direction:column; align-items:center; gap:3px;
+  cursor:pointer;
+  padding: 4px 6px;
+  border-radius: 5px;
+  border: 1.5px solid transparent;
+}
+.swatch img{
+  width: clamp(28px, 8vw, 40px);
+  height: clamp(28px, 8vw, 40px);
+  border-radius:6px;
+  border: 1px solid var(--paper-edge);
+  object-fit: contain;
+  background:#fff;
+}
+.swatch .swatch-label{
+  font-size:0.55rem;
+  max-width: 60px;
+  text-align:center;
+  line-height:1.1;
+  color: var(--ink-soft);
+}
+.swatch.selected{ border-color: var(--maroon); background: rgba(122,35,49,0.08); }
+
+.action-row{ display:flex; gap:8px; flex-wrap:wrap; justify-content:center; }
+.joker-btn{ position:relative; }
+.joker-count{
+  position:absolute; top:-6px; right:-6px;
+  background: var(--maroon); color:#fff;
+  font-size:0.6rem; font-weight:700;
+  border-radius:50%; width:16px;height:16px;
+  display:flex;align-items:center;justify-content:center;
+  border:1px solid #fff;
+}
+
+/* ================= END / CONFIRM OVERLAY ================= */
+#endScreen, #confirmModal{
+  display:none; position:fixed; inset:0; z-index: 20;
+  background: rgba(20,15,10,0.7);
+  align-items:center; justify-content:center; padding: 16px;
+  overflow-y:auto;
+}
+.end-card, .confirm-card{ width:min(480px,94vw); text-align:center; margin: 20px 0; }
+.end-card h2{ margin: 4px 0 10px; font-size:1.5rem; font-style:italic; }
+.biblio{ text-align:left; margin: 14px 0; font-size:0.82rem; }
+.biblio-item{
+  display:flex; gap:10px; align-items:flex-start;
+  padding: 8px 0; border-bottom: 1px dotted var(--paper-edge);
+}
+.biblio-item img{ width:32px; height:32px; border-radius:5px; border:1px solid var(--paper-edge); flex:0 0 auto; margin-top:2px; background:#fff; }
+.biblio-rank{ font-weight:700; color: var(--maroon); flex:0 0 auto; width:1.6em; }
+.biblio-text b{ font-style: italic; }
+.biblio-meta{ color: var(--ink-soft); font-size:0.75rem; }
+
+.toast{
+  position:fixed; top:14px; left:50%; transform:translateX(-50%);
+  background: var(--ink); color:#fdf6ec;
+  padding:8px 16px; border-radius:3px; font-size:0.82rem;
+  z-index:30; opacity:0; pointer-events:none; transition: opacity .3s;
+}
+.toast.show{ opacity:1; }
+
+.cross-link{
+  position:fixed; right:10px; bottom:8px;
+  font-size:0.68rem; color: var(--ink-soft);
+  text-decoration:none; border-bottom: 1px dotted var(--ink-soft);
+  opacity:0.6; z-index:5;
+}
+.cross-link:hover{ opacity:1; }
+
+@media (max-width:420px){
+  .feedback{ width: calc(2 * 8px + 1 * 3px); }
+  .fpeg{ width:8px; height:8px; }
+}
+</style>
+</head>
+<body>
+
+<button type="button" id="langToggle" class="lang-btn">DE</button>
+
+<div class="kicker" data-i18n="kicker">Publish or Perish &middot; The Guessing Game for Scholars</div>
+<h1 class="researcher-name" id="researcherName" data-i18n="appTitle">Publish or Perish</h1>
+<div class="orcid-line" id="orcidLine" style="display:none;"><span data-i18n="orcidPrefix">ORCID:</span> <a id="orcidLink" href="#" target="_blank" rel="noopener">-</a></div>
+<hr class="cv-divider">
+
+<!-- ===================== START ===================== -->
+<div id="startScreen" class="paper-card">
+  <div class="board-frame">
+    <div class="rank-labels"><span>#1</span><span>#2</span><span>#3</span></div>
+    <div class="secret-row">
+      <div class="slot"></div><div class="slot"></div><div class="slot"></div>
+    </div>
+    <div class="rows-scroll" style="max-height:none;">
+      <div class="row">
+        <div class="row-num">1</div>
+        <div class="slots">
+          <div class="slot filled"><div class="demo-badge" style="background:#c0392b;"></div></div>
+          <div class="slot filled"><div class="demo-badge" style="background:#2f6fd6;"></div></div>
+          <div class="slot"></div>
+        </div>
+        <div class="feedback"><div class="fpeg black"></div><div class="fpeg white"></div></div>
+      </div>
+      <div class="row">
+        <div class="row-num">2</div>
+        <div class="slots">
+          <div class="slot filled"><div class="demo-badge" style="background:#9c7a33;"></div></div>
+          <div class="slot"></div>
+          <div class="slot"></div>
+        </div>
+        <div class="feedback"><div class="fpeg"></div><div class="fpeg"></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="btn-row">
+    <button type="button" class="btn primary" id="goPlayBtn" data-i18n="startPlay">Play</button>
+    <button type="button" class="btn" id="goOptionsBtn" data-i18n="startOptions">Options</button>
+    <button type="button" class="btn" id="goHelpBtn" data-i18n="startHelp">How to Play</button>
+  </div>
+</div>
+
+<!-- ===================== HELP ===================== -->
+<div id="helpScreen" class="paper-card">
+  <h2 data-i18n="helpTitle">How this works</h2>
+  <p data-i18n="helpP1">Enter a researcher's ORCID iD. We fetch their most-cited works from OpenAlex — each one published with a particular publisher.</p>
+  <p data-i18n="helpP2">The secret code is the sequence of those publishers, ordered by citation rank. Guess it row by row:</p>
+  <p><span class="demo-fpeg black"></span><span data-i18n="helpBlack">Black dot: right publisher, right rank.</span></p>
+  <p><span class="demo-fpeg"></span><span data-i18n="helpWhite">Outlined dot: right publisher, wrong rank.</span></p>
+  <p data-i18n="helpJoker">A joker randomly reveals the publisher for one rank.</p>
+  <p data-i18n="helpTimer">With the timer on, you must finish your row in time, or it is submitted automatically.</p>
+  <p data-i18n="helpDifficulty">In Options you can choose whether to guess 2 or 3 of the researcher's top-cited works.</p>
+  <div class="btn-row">
+    <button type="button" class="btn" id="helpBackBtn" data-i18n="btnBack">← Back</button>
+  </div>
+</div>
+
+<!-- ===================== SETUP ===================== -->
+<div id="setupScreen" class="paper-card">
+  <div class="field-group">
+    <label data-i18n="orcidLabel">ORCID iD of the researcher</label>
+    <span class="hint" data-i18n="orcidHint">e.g. 0000-0001-6797-5476 — we automatically fetch the top-cited works (incl. publisher) via OpenAlex</span>
+    <div class="orcid-row">
+      <input type="text" id="orcidInput" placeholder="0000-0000-0000-0000" maxlength="60">
+      <button type="button" class="btn" id="fetchBtn" data-i18n="btnFetch">Load Publications</button>
+    </div>
+    <div class="fetch-status" id="fetchStatus"></div>
+    <button type="button" class="search-toggle" id="searchToggleBtn" data-i18n="searchToggle">Don't know the ORCID? Search by name →</button>
+    <div class="search-box" id="searchBox">
+      <div class="search-row">
+        <input type="text" id="nameInput" data-i18n-ph="searchPlaceholder" placeholder="e.g. Brian Nosek">
+        <button type="button" class="btn" id="nameSearchBtn" data-i18n="btnSearch">Search</button>
+      </div>
+      <div class="search-results" id="searchResults"></div>
+    </div>
+  </div>
+
+  <div class="field">
+    <label data-i18n="fieldGuessCountLabel">Publishers to guess
+      <span class="hint" data-i18n="fieldGuessCountHint">Use the researcher's top 2 or top 3 most-cited works</span>
+    </label>
+    <div class="segmented" id="guessCountSeg">
+      <button type="button" data-count="2">2</button>
+      <button type="button" data-count="3">3</button>
+    </div>
+  </div>
+
+  <div class="field">
+    <label data-i18n="fieldRoundsLabel">Rounds until Game Over
+      <span class="hint" data-i18n="fieldRoundsHint">How many attempts before it's over</span>
+    </label>
+    <div class="stepper">
+      <button type="button" data-step="rounds" data-dir="-1">−</button>
+      <output id="roundsOut">10</output>
+      <button type="button" data-step="rounds" data-dir="1">+</button>
+    </div>
+  </div>
+  <div class="field">
+    <label data-i18n="fieldInfiniteLabel">Infinite rounds</label>
+    <input type="checkbox" class="chk" id="infiniteToggle">
+  </div>
+
+  <div class="field">
+    <label data-i18n="fieldTimerLabel">Timer per round</label>
+    <input type="checkbox" class="chk" id="timerToggle">
+  </div>
+  <div class="field" id="timerSecField" style="display:none;">
+    <label data-i18n="fieldTimerSecLabel">Seconds per round</label>
+    <div class="stepper">
+      <button type="button" data-step="timerSec" data-dir="-1">−</button>
+      <output id="timerSecOut">60</output>
+      <button type="button" data-step="timerSec" data-dir="1">+</button>
+    </div>
+  </div>
+
+  <div class="field">
+    <label data-i18n="fieldJokerLabel">Joker
+      <span class="hint" data-i18n="fieldJokerHint">Number of hints, each revealing one publisher</span>
+    </label>
+    <div class="stepper">
+      <button type="button" data-step="jokers" data-dir="-1">−</button>
+      <output id="jokersOut">0</output>
+      <button type="button" data-step="jokers" data-dir="1">+</button>
+    </div>
+  </div>
+
+  <div class="btn-row">
+    <button type="button" class="btn" id="setupBackBtn" data-i18n="btnBack">← Back</button>
+    <button type="button" class="btn primary" id="startBtn" data-i18n="btnStart" disabled>Start Game</button>
+  </div>
+</div>
+
+<!-- ===================== GAME ===================== -->
+<div id="gameScreen">
+  <div class="topbar">
+    <div class="round-badge" id="roundBadge">Round 1</div>
+  </div>
+  <div class="timer-wrap" id="timerWrap"><div class="timer-bar" id="timerBar"></div></div>
+
+  <div class="board-frame">
+    <div class="rank-labels" id="rankLabels"></div>
+    <div class="secret-row" id="secretRow"></div>
+    <div class="rows-scroll" id="rowsScroll"></div>
+  </div>
+
+  <div class="controls">
+    <div class="palette" id="palette"></div>
+    <div class="action-row">
+      <button type="button" class="btn joker-btn" id="jokerBtn">
+        <span data-i18n="jokerWord">Joker</span> <span class="joker-count" id="jokerCount">0</span>
+      </button>
+      <button type="button" class="btn danger" id="clearBtn" data-i18n="btnClear">Clear row</button>
+      <button type="button" class="btn primary" id="checkBtn" data-i18n="btnCheck">Check</button>
+      <button type="button" class="btn danger" id="giveUpBtn" data-i18n="btnGiveUp">Give up</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== END OVERLAY ===================== -->
+<div id="endScreen">
+  <div class="paper-card end-card">
+    <h2 id="endTitle">Accepted!</h2>
+    <p id="endText"></p>
+    <div class="biblio" id="biblio"></div>
+    <div class="btn-row">
+      <button type="button" class="btn primary" id="againSeedBtn" data-i18n="btnAgain">Play again (same researcher)</button>
+      <button type="button" class="btn" id="newGameBtn" data-i18n="btnNewResearcher">New researcher</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== CONFIRM MODAL ===================== -->
+<div id="confirmModal">
+  <div class="paper-card confirm-card">
+    <p id="confirmText"></p>
+    <div class="btn-row">
+      <button type="button" class="btn danger" id="confirmYesBtn"></button>
+      <button type="button" class="btn" id="confirmNoBtn"></button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<a class="cross-link" href="../superbrain/" data-i18n="crossLink">Classic Wooden Edition →</a>
+
+<script>
+(function(){
+"use strict";
+
+/* ============== i18n ============== */
+const STR = {
+  en: {
+    kicker:"Publish or Perish · The Guessing Game for Scholars",
+    appTitle:"Publish or Perish",
+    orcidPrefix:"ORCID:",
+    startPlay:"Play", startOptions:"Options", startHelp:"How to Play",
+    helpTitle:"How this works",
+    helpP1:"Enter a researcher's ORCID iD. We fetch their most-cited works from OpenAlex — each one published with a particular publisher.",
+    helpP2:"The secret code is the sequence of those publishers, ordered by citation rank. Guess it row by row:",
+    helpBlack:"Black dot: right publisher, right rank.",
+    helpWhite:"Outlined dot: right publisher, wrong rank.",
+    helpJoker:"A joker randomly reveals the publisher for one rank.",
+    helpTimer:"With the timer on, you must finish your row in time, or it is submitted automatically.",
+    helpDifficulty:"In Options you can choose whether to guess 2 or 3 of the researcher's top-cited works.",
+    btnBack:"← Back",
+    orcidLabel:"ORCID iD of the researcher",
+    orcidHint:"e.g. 0000-0001-6797-5476 — we automatically fetch the top-cited works (incl. publisher) via OpenAlex",
+    btnFetch:"Load Publications",
+    searchToggle:"Don't know the ORCID? Search by name →",
+    searchPlaceholder:"e.g. Brian Nosek",
+    btnSearch:"Search",
+    searchNoResults:"No matches found.",
+    searchNoOrcid:"no ORCID on file",
+    searchUseBtn:"Use",
+    searchOrcidApplied:"ORCID applied: {o}",
+    fieldGuessCountLabel:"Publishers to guess", fieldGuessCountHint:"Use the researcher's top 2 or top 3 most-cited works",
+    fieldRoundsLabel:"Rounds until Game Over", fieldRoundsHint:"How many attempts before it's over",
+    fieldInfiniteLabel:"Infinite rounds",
+    fieldTimerLabel:"Timer per round",
+    fieldTimerSecLabel:"Seconds per round",
+    fieldJokerLabel:"Joker", fieldJokerHint:"Number of hints, each revealing one publisher",
+    btnStart:"Start Game",
+    jokerWord:"Joker", btnClear:"Clear row", btnCheck:"Check", btnGiveUp:"Give up",
+    btnAgain:"Play again (same researcher)", btnNewResearcher:"New researcher",
+    crossLink:"Classic Wooden Edition →",
+    roundLabel:"Round {cur} / {total}",
+    rankMost:"Most cited",
+    toastFillAll:"Please fill all fields",
+    toastTimeUp:"Time's up!",
+    toastAllRevealed:"Everything is already revealed!",
+    jokerRevealToast:"Rank {n}: {pub}",
+    confirmGiveUpText:"Really give up and reveal the bibliography?",
+    confirmYes:"Yes, give up", confirmCancel:"Cancel",
+    fetchPending:"Loading publication data from OpenAlex …",
+    fetchOk:"✓ Loaded {n} publications by {name} (cited {c}×)",
+    errInvalidOrcid:"Please enter a valid ORCID iD in the format 0000-0000-0000-0000.",
+    errAuthorNotFound:"No OpenAlex record was found for this ORCID iD.",
+    errNetworkAuthor:"Network error while loading author data. Please check your connection and try again.",
+    errNetworkWorks:"Network error while loading publications. Please check your connection and try again.",
+    errWorksLoad:"Publications could not be loaded.",
+    errTooFew:"Fewer than four citable publications with publisher information were found for this ORCID iD (found: {n}). Please try a different ORCID iD.",
+    endWinTitle:"Accepted! 🎓",
+    endWinText:"{name}'s publication list was correctly reconstructed in round {r}. Time: {t}",
+    endLoseTitle:"Rejected",
+    endLoseText:"The actual publisher order for {name} (time: {t}):",
+    biblioRankMeta:"{rank} · {c} citations per OpenAlex"
+  },
+  de: {
+    kicker:"Publish or Perish · Verlags-Ratespiel für die Wissenschaft",
+    appTitle:"Publish or Perish",
+    orcidPrefix:"ORCID:",
+    startPlay:"Spielen", startOptions:"Optionen", startHelp:"Spielanleitung",
+    helpTitle:"So wird gespielt",
+    helpP1:"Trage die ORCID iD einer Forscherin oder eines Forschers ein. Wir laden die meistzitierten Werke von OpenAlex — jedes davon bei einem bestimmten Verlag erschienen.",
+    helpP2:"Der geheime Code ist die Reihenfolge dieser Verlage, sortiert nach Zitationsrang. Errate sie Zeile für Zeile:",
+    helpBlack:"Schwarzer Punkt: richtiger Verlag, richtiger Rang.",
+    helpWhite:"Umrandeter Punkt: richtiger Verlag, falscher Rang.",
+    helpJoker:"Ein Joker verrät zufällig den Verlag für einen Rang.",
+    helpTimer:"Bei aktivem Timer musst du deine Reihe rechtzeitig abschließen, sonst wird sie automatisch abgeschickt.",
+    helpDifficulty:"In den Optionen kannst du wählen, ob du 2 oder 3 der meistzitierten Werke erraten sollst.",
+    btnBack:"← Zurück",
+    orcidLabel:"ORCID iD der Forscherin / des Forschers",
+    orcidHint:"z. B. 0000-0001-6797-5476 — wir laden automatisch die meistzitierten Werke (inkl. Verlag) über OpenAlex",
+    btnFetch:"Publikationen laden",
+    searchToggle:"ORCID unbekannt? Nach Namen suchen →",
+    searchPlaceholder:"z. B. Brian Nosek",
+    btnSearch:"Suchen",
+    searchNoResults:"Keine Treffer gefunden.",
+    searchNoOrcid:"keine ORCID hinterlegt",
+    searchUseBtn:"Übernehmen",
+    searchOrcidApplied:"ORCID übernommen: {o}",
+    fieldGuessCountLabel:"Zu erratende Verlage", fieldGuessCountHint:"Nutze die 2 oder 3 meistzitierten Werke der Person",
+    fieldRoundsLabel:"Runden bis Game Over", fieldRoundsHint:"Nach wie vielen Versuchen ist Schluss",
+    fieldInfiniteLabel:"Unendlich viele Runden",
+    fieldTimerLabel:"Timer pro Runde",
+    fieldTimerSecLabel:"Sekunden pro Runde",
+    fieldJokerLabel:"Joker", fieldJokerHint:"Anzahl Hinweise, die je einen Verlag verraten",
+    btnStart:"Spiel starten",
+    jokerWord:"Joker", btnClear:"Zeile leeren", btnCheck:"Prüfen", btnGiveUp:"Aufgeben",
+    btnAgain:"Nochmal (gleiche Person)", btnNewResearcher:"Neue Forscherin / neuer Forscher",
+    crossLink:"Klassische Holz-Edition →",
+    roundLabel:"Runde {cur} / {total}",
+    rankMost:"Meistzitiert",
+    toastFillAll:"Bitte alle Felder setzen",
+    toastTimeUp:"Zeit abgelaufen!",
+    toastAllRevealed:"Schon alles verraten!",
+    jokerRevealToast:"Rang {n}: {pub}",
+    confirmGiveUpText:"Wirklich aufgeben und die Bibliographie aufdecken?",
+    confirmYes:"Ja, aufgeben", confirmCancel:"Abbrechen",
+    fetchPending:"Lade Publikationsdaten von OpenAlex …",
+    fetchOk:"✓ {n} Publikationen von {name} geladen (zitiert {c}×)",
+    errInvalidOrcid:"Bitte eine gültige ORCID iD im Format 0000-0000-0000-0000 eingeben.",
+    errAuthorNotFound:"Für diese ORCID iD wurden keine Daten bei OpenAlex gefunden.",
+    errNetworkAuthor:"Netzwerkfehler beim Laden der Autor:innen-Daten. Bitte Verbindung prüfen und erneut versuchen.",
+    errNetworkWorks:"Netzwerkfehler beim Laden der Publikationen. Bitte Verbindung prüfen und erneut versuchen.",
+    errWorksLoad:"Publikationen konnten nicht geladen werden.",
+    errTooFew:"Für diese ORCID iD wurden weniger als vier zitierfähige Publikationen mit Verlagsangabe gefunden (gefunden: {n}). Bitte eine andere ORCID iD versuchen.",
+    endWinTitle:"Angenommen! 🎓",
+    endWinText:"{name}s Publikationsliste wurde in Runde {r} korrekt rekonstruiert. Zeit: {t}",
+    endLoseTitle:"Rejected",
+    endLoseText:"Die tatsächliche Verlags-Reihenfolge von {name} (Zeit: {t}):",
+    biblioRankMeta:"{rank} · {c} Zitationen laut OpenAlex"
+  }
+};
+let LANG = localStorage.getItem("pop_lang") || "en";
+function t(key, params){
+  let s = (STR[LANG] && STR[LANG][key]!==undefined) ? STR[LANG][key] : key;
+  if (params) Object.keys(params).forEach(k=>{ s = s.replace("{"+k+"}", params[k]); });
+  return s;
+}
+function applyLang(){
+  document.documentElement.lang = LANG;
+  document.querySelectorAll("[data-i18n]").forEach(el=>{
+    const key = el.dataset.i18n;
+    if (el.children.length){
+      for (const node of el.childNodes){
+        if (node.nodeType===3 && node.textContent.trim()){ node.textContent = t(key) + " "; break; }
+      }
+    } else {
+      el.textContent = t(key);
+    }
+  });
+  document.querySelectorAll("[data-i18n-ph]").forEach(el=>{ el.placeholder = t(el.dataset.i18nPh); });
+  $("langToggle").textContent = LANG==="en" ? "DE" : "EN";
+  if (!pendingResearcher && !(state.researcher)){
+    $("researcherName").textContent = t("appTitle");
+  }
+  localStorage.setItem("pop_lang", LANG);
+  refreshDynamicTexts();
+}
+function refreshDynamicTexts(){
+  if ($("gameScreen").style.display!=="none"){ renderRoundBadge(); buildRankLabels(); }
+  if ($("confirmModal").style.display==="flex"){
+    $("confirmText").textContent = t("confirmGiveUpText");
+    $("confirmYesBtn").textContent = t("confirmYes");
+    $("confirmNoBtn").textContent = t("confirmCancel");
+  }
+}
+
+/* ============== publisher visuals ============== */
+const PUBLISHER_DOMAINS = [
+  [/elsevier/i, "elsevier.com"],
+  [/springer nature/i, "springernature.com"],
+  [/nature portfolio|nature publishing/i, "nature.com"],
+  [/springer/i, "springer.com"],
+  [/wiley/i, "wiley.com"],
+  [/taylor\s*&?\s*francis|informa/i, "tandfonline.com"],
+  [/sage/i, "sagepub.com"],
+  [/oxford university press/i, "academic.oup.com"],
+  [/cambridge university press/i, "cambridge.org"],
+  [/american psychological association/i, "apa.org"],
+  [/frontiers/i, "frontiersin.org"],
+  [/mdpi/i, "mdpi.com"],
+  [/institute of electrical|^ieee/i, "ieee.org"],
+  [/association for computing machinery|\bacm\b/i, "acm.org"],
+  [/public library of science|\bplos\b/i, "plos.org"],
+  [/american chemical society/i, "acs.org"],
+  [/biomed central/i, "biomedcentral.com"],
+  [/emerald/i, "emerald.com"],
+  [/de gruyter/i, "degruyter.com"],
+  [/cell press/i, "cell.com"],
+  [/american medical association/i, "ama-assn.org"],
+  [/\bbmj\b/i, "bmj.com"],
+  [/copernicus/i, "copernicus.org"],
+  [/hindawi/i, "hindawi.com"],
+  [/national academy of sciences|\bpnas\b/i, "pnas.org"],
+  [/royal society/i, "royalsociety.org"],
+  [/american association for the advancement of science|\baaas\b/i, "science.org"],
+  [/wolters kluwer/i, "wolterskluwer.com"],
+  [/karger/i, "karger.com"],
+  [/thieme/i, "thieme.com"],
+  [/annual reviews/i, "annualreviews.org"],
+];
+function findDomain(name){
+  for (const [re, domain] of PUBLISHER_DOMAINS){ if (re.test(name)) return domain; }
+  return null;
+}
+function initials(name){
+  const skip = new Set(["the","of","and","für","inc","ltd","llc","bv","sa","gmbh","press","publishing","publications","group"]);
+  const words = name.replace(/[()&,.]/g," ").split(/\s+/).filter(w=>w && !skip.has(w.toLowerCase()));
+  if (words.length===0) return "?";
+  if (words.length===1) return words[0].slice(0,2).toUpperCase();
+  return (words[0][0]+words[1][0]).toUpperCase();
+}
+function hashHue(str){
+  let h=0; for (let i=0;i<str.length;i++){ h = (h*31 + str.charCodeAt(i))|0; }
+  return Math.abs(h)%360;
+}
+function monogramDataUri(name){
+  const hue = hashHue(name);
+  const ini = initials(name);
+  const svg = '<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64">'+
+    '<rect width="64" height="64" rx="12" fill="hsl('+hue+',48%,40%)"/>'+
+    '<text x="32" y="41" font-family="Georgia,serif" font-size="24" font-weight="700" fill="white" text-anchor="middle">'+ini+'</text></svg>';
+  return "data:image/svg+xml;utf8," + encodeURIComponent(svg);
+}
+function publisherImgSrc(name){
+  const domain = findDomain(name);
+  return domain ? ("https://www.google.com/s2/favicons?sz=64&domain="+domain) : monogramDataUri(name);
+}
+
+/* ============== decoy publisher pool ============== */
+const DECOY_PUBLISHERS = [
+  "Elsevier","Springer Nature","Wiley","Taylor & Francis","SAGE Publications",
+  "Oxford University Press","Cambridge University Press","American Psychological Association",
+  "Frontiers Media SA","MDPI","IEEE","Association for Computing Machinery",
+  "Public Library of Science","American Chemical Society","BioMed Central",
+  "Emerald Publishing","De Gruyter","Cell Press","American Medical Association",
+  "BMJ","Copernicus Publications","Hindawi","National Academy of Sciences",
+  "Royal Society","American Association for the Advancement of Science",
+  "Wolters Kluwer","Karger","Thieme","Annual Reviews","Nature Portfolio"
+];
+function normPub(name){ return name.trim().toLowerCase(); }
+function shuffled(arr){
+  const a = arr.slice();
+  for (let i=a.length-1;i>0;i--){
+    const j = Math.floor(Math.random()*(i+1));
+    [a[i],a[j]] = [a[j],a[i]];
+  }
+  return a;
+}
+
+/* ============== OpenAlex fetch ============== */
+const OA_MAILTO = "lukas.roeseler@uni-muenster.de";
+function normalizeOrcid(raw){
+  let s = (raw||"").trim();
+  s = s.replace(/^https?:\/\//i,"");
+  s = s.replace(/^(www\.)?orcid\.org\//i,"");
+  s = s.replace(/\/$/,"");
+  s = s.toUpperCase();
+  return s;
+}
+function isValidOrcid(s){
+  return /^\d{4}-\d{4}-\d{4}-\d{3}[\dX]$/.test(s);
+}
+async function fetchResearcher(orcid){
+  let authorRes;
+  try{
+    authorRes = await fetch("https://api.openalex.org/authors/orcid:"+orcid+"?mailto="+OA_MAILTO);
+  } catch(e){
+    throw new Error("NETWORK_AUTHOR");
+  }
+  if (!authorRes.ok) throw new Error("AUTHOR_NOT_FOUND");
+  const author = await authorRes.json();
+  if (!author || !author.display_name) throw new Error("AUTHOR_NOT_FOUND");
+
+  let worksRes;
+  try{
+    worksRes = await fetch("https://api.openalex.org/works?filter=author.orcid:"+orcid+
+      "&sort=cited_by_count:desc&per_page=25&select=id,title,cited_by_count,publication_year,primary_location&mailto="+OA_MAILTO);
+  } catch(e){
+    throw new Error("NETWORK_WORKS");
+  }
+  if (!worksRes.ok) throw new Error("WORKS_LOAD_FAILED");
+  const worksJson = await worksRes.json();
+  const results = (worksJson.results||[]).filter(r =>
+    r.primary_location && r.primary_location.source && r.primary_location.source.host_organization_name
+  );
+  if (results.length < 4){
+    const e = new Error("TOO_FEW_WORKS"); e.count = results.length; throw e;
+  }
+  const top4 = results.slice(0,4).map(r => ({
+    title: r.title || "(no title)",
+    year: r.publication_year || "?",
+    citedBy: r.cited_by_count || 0,
+    journal: r.primary_location.source.display_name || "",
+    publisher: r.primary_location.source.host_organization_name
+  }));
+  return { name: author.display_name, works: top4 };
+}
+function errMessage(err){
+  switch(err.message){
+    case "NETWORK_AUTHOR": return t("errNetworkAuthor");
+    case "AUTHOR_NOT_FOUND": return t("errAuthorNotFound");
+    case "NETWORK_WORKS": return t("errNetworkWorks");
+    case "WORKS_LOAD_FAILED": return t("errWorksLoad");
+    case "TOO_FEW_WORKS": return t("errTooFew",{n: err.count});
+    default: return err.message || "Unknown error";
+  }
+}
+
+/* ============== evaluate guess (mastermind core) ============== */
+function evaluateGuess(guess, secret){
+  const n = secret.length;
+  let black = 0;
+  const gRest = [], sRest = [];
+  for (let i=0;i<n;i++){
+    if (guess[i]!==null && guess[i]===secret[i]) black++;
+    else { gRest.push(guess[i]); sRest.push(secret[i]); }
+  }
+  const counts = {};
+  sRest.forEach(c=>{ if(c!==null) counts[c]=(counts[c]||0)+1; });
+  let white = 0;
+  gRest.forEach(c=>{ if (c!==null && counts[c]>0){ white++; counts[c]--; } });
+  return {black, white};
+}
+
+/* ============== state ============== */
+const state = {
+  guessCount:3, roundsIdx:10, timer:false, timerSec:60, jokers:0,
+  researcher:null, secretKeys:[], palette:[],
+  guesses:[], activeRow:0,
+  jokersLeft:0, revealed:{},
+  timerHandle:null, timerRemaining:0,
+  finished:false, selectedKey:null,
+  startTime:0, endTime:0
+};
+
+const $ = id => document.getElementById(id);
+function clamp(v,min,max){ return Math.max(min,Math.min(max,v)); }
+
+/* ============== screen navigation ============== */
+function showScreen(name){
+  ["startScreen","helpScreen","setupScreen","gameScreen"].forEach(id=>{ $(id).style.display = "none"; });
+  if (name==="game") $("gameScreen").style.display = "flex";
+  else $(name+"Screen").style.display = "block";
+}
+$("goOptionsBtn").addEventListener("click", ()=>{ showScreen("setup"); });
+$("goHelpBtn").addEventListener("click", ()=>{ showScreen("help"); });
+$("helpBackBtn").addEventListener("click", ()=>{ showScreen("start"); });
+$("setupBackBtn").addEventListener("click", ()=>{ showScreen("start"); });
+$("goPlayBtn").addEventListener("click", async ()=>{
+  showScreen("setup");
+  await doFetch();
+  if (pendingResearcher) beginGame();
+});
+
+/* ============== setup UI ============== */
+const roundsOut=$("roundsOut"), jokersOut=$("jokersOut"), timerSecOut=$("timerSecOut");
+const infiniteToggle=$("infiniteToggle"), timerToggle=$("timerToggle"), timerSecField=$("timerSecField");
+const orcidInput=$("orcidInput"), fetchStatus=$("fetchStatus"), startBtn=$("startBtn");
+const TIMER_SEC_VALUES_MIN=10, TIMER_SEC_VALUES_MAX=180;
+
+function refreshSetupUI(){
+  roundsOut.textContent = state.roundsIdx===0 ? "∞" : state.roundsIdx;
+  jokersOut.textContent = state.jokers;
+  timerSecOut.textContent = state.timerSec;
+  infiniteToggle.checked = state.roundsIdx===0;
+  timerToggle.checked = state.timer;
+  timerSecField.style.display = state.timer ? "flex" : "none";
+  document.querySelectorAll("#guessCountSeg button").forEach(b=>{
+    b.classList.toggle("active", parseInt(b.dataset.count,10)===state.guessCount);
+  });
+}
+document.querySelectorAll("#guessCountSeg button").forEach(btn=>{
+  btn.addEventListener("click", ()=>{
+    state.guessCount = parseInt(btn.dataset.count,10);
+    if (state.jokers > state.guessCount) state.jokers = state.guessCount;
+    refreshSetupUI();
+  });
+});
+document.querySelectorAll("[data-step]").forEach(btn=>{
+  btn.addEventListener("click", ()=>{
+    const field = btn.dataset.step;
+    const dir = parseInt(btn.dataset.dir,10);
+    if (field==="rounds"){
+      if (state.roundsIdx===0) state.roundsIdx = dir>0 ? 1 : 20;
+      else state.roundsIdx = clamp(state.roundsIdx+dir, 1, 20);
+    } else if (field==="jokers"){
+      state.jokers = clamp(state.jokers+dir, 0, state.guessCount);
+    } else if (field==="timerSec"){
+      state.timerSec = clamp(state.timerSec+dir, TIMER_SEC_VALUES_MIN, TIMER_SEC_VALUES_MAX);
+    }
+    refreshSetupUI();
+  });
+});
+infiniteToggle.addEventListener("change", ()=>{
+  state.roundsIdx = infiniteToggle.checked ? 0 : 10;
+  refreshSetupUI();
+});
+timerToggle.addEventListener("change", ()=>{
+  state.timer = timerToggle.checked;
+  refreshSetupUI();
+});
+refreshSetupUI();
+
+/* ============== toast ============== */
+let toastTimer=null;
+function toast(msg){
+  const el = $("toast");
+  el.textContent = msg;
+  el.classList.add("show");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(()=>el.classList.remove("show"), 2400);
+}
+
+/* ============== confirm modal ============== */
+function showConfirm(text, yesLabel, noLabel, onYes){
+  $("confirmText").textContent = text;
+  $("confirmYesBtn").textContent = yesLabel;
+  $("confirmNoBtn").textContent = noLabel;
+  const modal = $("confirmModal");
+  modal.style.display = "flex";
+  function cleanup(){
+    modal.style.display = "none";
+    $("confirmYesBtn").removeEventListener("click", onYesClick);
+    $("confirmNoBtn").removeEventListener("click", onNoClick);
+  }
+  function onYesClick(){ cleanup(); onYes(); }
+  function onNoClick(){ cleanup(); }
+  $("confirmYesBtn").addEventListener("click", onYesClick);
+  $("confirmNoBtn").addEventListener("click", onNoClick);
+}
+
+/* ============== ORCID fetch flow ============== */
+let pendingResearcher = null;
+$("fetchBtn").addEventListener("click", ()=>{ doFetch(); });
+orcidInput.addEventListener("keydown", e=>{ if (e.key==="Enter") doFetch(); });
+orcidInput.value = "0000-0002-6446-1901";
+
+async function doFetch(){
+  const orcid = normalizeOrcid(orcidInput.value);
+  if (!isValidOrcid(orcid)){
+    fetchStatus.className = "fetch-status err";
+    fetchStatus.textContent = t("errInvalidOrcid");
+    startBtn.disabled = true; pendingResearcher = null;
+    return;
+  }
+  fetchStatus.className = "fetch-status pending";
+  fetchStatus.textContent = t("fetchPending");
+  startBtn.disabled = true;
+  $("fetchBtn").disabled = true;
+  try{
+    const data = await fetchResearcher(orcid);
+    pendingResearcher = { orcid, name: data.name, works: data.works };
+    fetchStatus.className = "fetch-status ok";
+    const cites = data.works.map(w=>w.citedBy).join(" / ");
+    fetchStatus.textContent = t("fetchOk",{n: data.works.length, name: data.name, c: cites});
+    startBtn.disabled = false;
+  } catch(err){
+    pendingResearcher = null;
+    fetchStatus.className = "fetch-status err";
+    fetchStatus.textContent = errMessage(err);
+    startBtn.disabled = true;
+  } finally{
+    $("fetchBtn").disabled = false;
+  }
+}
+
+/* ============== person search ============== */
+$("searchToggleBtn").addEventListener("click", ()=>{
+  const box = $("searchBox");
+  box.style.display = box.style.display==="none" || !box.style.display ? "block" : "none";
+});
+$("nameSearchBtn").addEventListener("click", ()=>{ doNameSearch(); });
+$("nameInput").addEventListener("keydown", e=>{ if (e.key==="Enter") doNameSearch(); });
+
+async function doNameSearch(){
+  const name = $("nameInput").value.trim();
+  const resultsEl = $("searchResults");
+  if (!name){ return; }
+  resultsEl.innerHTML = "<div class='fetch-status pending'>"+t("fetchPending")+"</div>";
+  try{
+    const res = await fetch("https://api.openalex.org/authors?search="+encodeURIComponent(name)+"&per_page=5&mailto="+OA_MAILTO);
+    const json = await res.json();
+    resultsEl.innerHTML = "";
+    const list = json.results || [];
+    if (list.length===0){
+      resultsEl.innerHTML = "<div class='fetch-status'>"+t("searchNoResults")+"</div>";
+      return;
+    }
+    list.forEach(a=>{
+      const insts = a.last_known_institutions || [];
+      const inst = insts.length ? insts[0].display_name : "";
+      const orcidUrl = a.orcid;
+      const row = document.createElement("div");
+      row.className = "search-result";
+      const info = document.createElement("div");
+      info.className = "info";
+      info.innerHTML = "<b>"+a.display_name+"</b>" + (inst ? "<div class='inst'>"+inst+"</div>" : "");
+      row.appendChild(info);
+      if (orcidUrl){
+        const btn = document.createElement("button");
+        btn.type = "button"; btn.className = "btn primary"; btn.textContent = t("searchUseBtn");
+        btn.addEventListener("click", ()=>{
+          const orcid = normalizeOrcid(orcidUrl);
+          orcidInput.value = orcid;
+          toast(t("searchOrcidApplied",{o:orcid}));
+          $("searchBox").style.display = "none";
+        });
+        row.appendChild(btn);
+      } else {
+        const span = document.createElement("span");
+        span.className = "no-orcid";
+        span.textContent = t("searchNoOrcid");
+        row.appendChild(span);
+      }
+      resultsEl.appendChild(row);
+    });
+  } catch(e){
+    resultsEl.innerHTML = "<div class='fetch-status err'>"+t("errNetworkAuthor")+"</div>";
+  }
+}
+
+/* ============== start game ============== */
+startBtn.addEventListener("click", ()=>{
+  if (!pendingResearcher) return;
+  beginGame();
+});
+
+function beginGame(){
+  state.researcher = pendingResearcher;
+
+  const secretNames = state.researcher.works.slice(0, state.guessCount).map(w=>w.publisher);
+  state.secretKeys = secretNames.map(normPub);
+
+  const distinctKeys = [];
+  const distinctNames = [];
+  secretNames.forEach(n=>{
+    const k = normPub(n);
+    if (distinctKeys.indexOf(k)===-1){ distinctKeys.push(k); distinctNames.push(n); }
+  });
+  const decoyPool = shuffled(DECOY_PUBLISHERS.filter(d => distinctKeys.indexOf(normPub(d))===-1));
+  const paletteNames = distinctNames.slice();
+  let di = 0;
+  while (paletteNames.length < 6 && di < decoyPool.length){ paletteNames.push(decoyPool[di++]); }
+  state.palette = shuffled(paletteNames);
+
+  state.guesses = [ emptyGuess() ];
+  state.activeRow = 0;
+  state.jokersLeft = state.jokers;
+  state.revealed = {};
+  state.finished = false;
+  state.selectedKey = null;
+  state.startTime = Date.now();
+  state.endTime = 0;
+
+  $("researcherName").textContent = state.researcher.name;
+  $("orcidLine").style.display = "block";
+  $("orcidLink").textContent = state.researcher.orcid;
+  $("orcidLink").href = "https://orcid.org/"+state.researcher.orcid;
+
+  showScreen("game");
+  buildRankLabels();
+  buildPalette();
+  renderAll();
+  startTimerIfNeeded();
+}
+function emptyGuess(){ return new Array(state.guessCount).fill(null); }
+function buildRankLabels(){
+  const wrap = $("rankLabels");
+  wrap.innerHTML = "";
+  const labels = [t("rankMost"),"#2","#3"].slice(0, state.guessCount);
+  labels.forEach(l=>{
+    const s = document.createElement("span");
+    s.textContent = l;
+    wrap.appendChild(s);
+  });
+}
+
+/* ============== rendering ============== */
+function buildPalette(){
+  const pal = $("palette");
+  pal.innerHTML = "";
+  state.palette.forEach(name=>{
+    const key = normPub(name);
+    const sw = document.createElement("div");
+    sw.className = "swatch";
+    sw.dataset.key = key;
+    const img = document.createElement("img");
+    img.src = publisherImgSrc(name);
+    img.alt = name;
+    const label = document.createElement("div");
+    label.className = "swatch-label";
+    label.textContent = name;
+    sw.appendChild(img);
+    sw.appendChild(label);
+    sw.addEventListener("click", ()=>selectColor(key));
+    pal.appendChild(sw);
+  });
+}
+function selectColor(key){
+  state.selectedKey = key;
+  document.querySelectorAll(".swatch").forEach(s=>{
+    s.classList.toggle("selected", s.dataset.key===key);
+  });
+  const guess = state.guesses[state.activeRow];
+  const idx = guess.indexOf(null);
+  if (idx !== -1){ guess[idx] = key; renderRows(); }
+}
+function publisherNameForKey(key){
+  const found = state.palette.find(n => normPub(n)===key);
+  return found || key;
+}
+
+function renderAll(){
+  renderSecretRow();
+  renderRows();
+  renderRoundBadge();
+  renderJoker();
+}
+function renderSecretRow(){
+  const row = $("secretRow");
+  row.innerHTML = "";
+  for (let i=0;i<state.guessCount;i++){
+    const slot = document.createElement("div");
+    slot.className = "slot";
+    let key = null;
+    if (state.finished) key = state.secretKeys[i];
+    else if (state.revealed[i]!==undefined) key = state.revealed[i];
+    if (key!==null){
+      const img = document.createElement("img");
+      img.src = publisherImgSrc(publisherNameForKey(key));
+      slot.appendChild(img);
+      slot.classList.add("filled");
+    }
+    row.appendChild(slot);
+  }
+}
+function renderRows(){
+  const scroll = $("rowsScroll");
+  scroll.innerHTML = "";
+  state.guesses.forEach((guess, ri)=>{
+    const rowEl = document.createElement("div");
+    rowEl.className = "row" + (ri===state.activeRow && !state.finished ? " active":"");
+    const num = document.createElement("div");
+    num.className = "row-num";
+    num.textContent = ri+1;
+    rowEl.appendChild(num);
+
+    const slots = document.createElement("div");
+    slots.className = "slots";
+    guess.forEach((key, ci)=>{
+      const slot = document.createElement("div");
+      slot.className = "slot" + (key!==null ? " filled":"");
+      if (key!==null){
+        const img = document.createElement("img");
+        img.src = publisherImgSrc(publisherNameForKey(key));
+        slot.appendChild(img);
+      }
+      if (ri===state.activeRow && !state.finished){
+        slot.addEventListener("click", ()=>{
+          if (guess[ci]!==null){ guess[ci]=null; renderRows(); }
+        });
+      }
+      slots.appendChild(slot);
+    });
+    rowEl.appendChild(slots);
+
+    const fb = document.createElement("div");
+    fb.className = "feedback";
+    const pegsFb = [];
+    if (guess._result){
+      for (let i=0;i<guess._result.black;i++) pegsFb.push("black");
+      for (let i=0;i<guess._result.white;i++) pegsFb.push("white");
+    }
+    while (pegsFb.length < state.guessCount) pegsFb.push("");
+    pegsFb.forEach(kind=>{
+      const fp = document.createElement("div");
+      fp.className = "fpeg" + (kind ? " "+kind : "");
+      fb.appendChild(fp);
+    });
+    rowEl.appendChild(fb);
+
+    scroll.appendChild(rowEl);
+  });
+  scroll.scrollTop = scroll.scrollHeight;
+}
+function renderRoundBadge(){
+  const total = state.roundsIdx===0 ? "∞" : state.roundsIdx;
+  $("roundBadge").textContent = t("roundLabel",{cur: state.activeRow+1, total: total});
+}
+function renderJoker(){
+  $("jokerCount").textContent = state.jokersLeft;
+  $("jokerBtn").disabled = state.jokersLeft<=0 || state.finished;
+}
+
+/* ============== joker ============== */
+$("jokerBtn").addEventListener("click", ()=>{
+  if (state.jokersLeft<=0 || state.finished) return;
+  const remainingPositions = [];
+  for (let i=0;i<state.guessCount;i++) if (state.revealed[i]===undefined) remainingPositions.push(i);
+  if (remainingPositions.length===0){ toast(t("toastAllRevealed")); return; }
+  const pick = remainingPositions[Math.floor(Math.random()*remainingPositions.length)];
+  state.revealed[pick] = state.secretKeys[pick];
+  state.jokersLeft--;
+  renderSecretRow();
+  renderJoker();
+  toast(t("jokerRevealToast",{n: pick+1, pub: publisherNameForKey(state.secretKeys[pick])}));
+});
+
+/* ============== clear / check ============== */
+$("clearBtn").addEventListener("click", ()=>{
+  if (state.finished) return;
+  state.guesses[state.activeRow] = emptyGuess();
+  renderRows();
+});
+$("checkBtn").addEventListener("click", ()=>{ submitGuess(); });
+
+function submitGuess(auto){
+  if (state.finished) return;
+  const guess = state.guesses[state.activeRow];
+  if (!auto && guess.some(v=>v===null)){ toast(t("toastFillAll")); return; }
+  const result = evaluateGuess(guess, state.secretKeys);
+  guess._result = result;
+  stopTimer();
+
+  if (result.black === state.guessCount){ finishGame(true); return; }
+  const isLastRound = state.roundsIdx!==0 && (state.activeRow+1) >= state.roundsIdx;
+  if (isLastRound){ finishGame(false); return; }
+  state.activeRow++;
+  state.guesses.push(emptyGuess());
+  renderRows(); renderRoundBadge();
+  startTimerIfNeeded();
+}
+
+/* ============== timer ============== */
+function startTimerIfNeeded(){
+  stopTimer();
+  if (!state.timer || state.finished){ $("timerWrap").style.display="none"; return; }
+  $("timerWrap").style.display="block";
+  state.timerRemaining = state.timerSec;
+  updateTimerBar();
+  state.timerHandle = setInterval(()=>{
+    state.timerRemaining--;
+    updateTimerBar();
+    if (state.timerRemaining<=0){
+      stopTimer();
+      toast(t("toastTimeUp"));
+      submitGuess(true);
+    }
+  }, 1000);
+}
+function stopTimer(){ if (state.timerHandle){ clearInterval(state.timerHandle); state.timerHandle=null; } }
+function updateTimerBar(){
+  const bar = $("timerBar");
+  const pct = Math.max(0, state.timerRemaining/state.timerSec*100);
+  bar.style.width = pct+"%";
+  bar.style.background = pct<25 ? "#a33" : "#7a2331";
+}
+
+/* ============== give up / finish ============== */
+$("giveUpBtn").addEventListener("click", ()=>{
+  if (state.finished) return;
+  showConfirm(t("confirmGiveUpText"), t("confirmYes"), t("confirmCancel"), ()=>finishGame(false));
+});
+
+function formatDuration(ms){
+  const totalSec = Math.max(0, Math.round(ms/1000));
+  const m = Math.floor(totalSec/60);
+  const s = totalSec%60;
+  return m + ":" + (s<10?"0":"") + s;
+}
+
+function finishGame(won){
+  state.finished = true;
+  state.endTime = Date.now();
+  stopTimer();
+  renderSecretRow(); renderRows(); renderJoker();
+
+  const overlay = $("endScreen");
+  const title = $("endTitle");
+  const text = $("endText");
+  const biblio = $("biblio");
+  biblio.innerHTML = "";
+
+  const rankLabels = [t("rankMost"),"#2","#3"].slice(0, state.guessCount);
+  state.researcher.works.slice(0, state.guessCount).forEach((w,i)=>{
+    const item = document.createElement("div");
+    item.className = "biblio-item";
+    const img = document.createElement("img");
+    img.src = publisherImgSrc(w.publisher);
+    const rank = document.createElement("div");
+    rank.className = "biblio-rank";
+    rank.textContent = "["+(i+1)+"]";
+    const txt = document.createElement("div");
+    txt.className = "biblio-text";
+    txt.innerHTML = "<b>"+w.title+"</b> ("+w.year+"). "+w.journal+" — "+w.publisher+
+      "<div class='biblio-meta'>"+t("biblioRankMeta",{rank: rankLabels[i], c: w.citedBy})+"</div>";
+    item.appendChild(rank); item.appendChild(img); item.appendChild(txt);
+    biblio.appendChild(item);
+  });
+
+  const elapsed = formatDuration(state.endTime - state.startTime);
+  if (won){
+    title.textContent = t("endWinTitle");
+    text.textContent = t("endWinText",{name: state.researcher.name, r: state.activeRow+1, t: elapsed});
+  } else {
+    title.textContent = t("endLoseTitle");
+    text.textContent = t("endLoseText",{name: state.researcher.name, t: elapsed});
+  }
+  overlay.style.display = "flex";
+}
+
+$("againSeedBtn").addEventListener("click", ()=>{ beginGame(); });
+$("newGameBtn").addEventListener("click", ()=>{
+  $("endScreen").style.display="none";
+  showScreen("start");
+  $("researcherName").textContent = t("appTitle");
+  $("orcidLine").style.display = "none";
+  pendingResearcher = null;
+  state.researcher = null;
+  fetchStatus.className = "fetch-status";
+  fetchStatus.textContent = "";
+  startBtn.disabled = true;
+});
+
+/* ============== language toggle ============== */
+document.getElementById("langToggle").addEventListener("click", ()=>{
+  LANG = LANG==="en" ? "de" : "en";
+  applyLang();
+});
+
+showScreen("start");
+applyLang();
+
+})();
+</script>
+</body>
+</html>
