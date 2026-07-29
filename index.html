@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
 <title>SUPERHIRN</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+CiAgPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTQiIGZpbGw9IiMzYTI3MTIiLz4KICA8Y2lyY2xlIGN4PSIzMiIgY3k9IjM0IiByPSIyMyIgZmlsbD0iIzA1MDUwNSIvPgogIDxjaXJjbGUgY3g9IjMyIiBjeT0iMzQiIHI9IjIzIiBmaWxsPSJ1cmwoI2cpIi8+CiAgPGRlZnM+CiAgICA8cmFkaWFsR3JhZGllbnQgaWQ9ImciIGN4PSIzNSUiIGN5PSIzMCUiIHI9Ijc1JSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiM3NzciLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIzNSUiIHN0b3AtY29sb3I9IiMyMjIiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMDAwIi8+CiAgICA8L3JhZGlhbEdyYWRpZW50PgogIDwvZGVmcz4KPC9zdmc+Cg==">
 <style>
 :root{
   --frame-wood: url("data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5Ojf/2wBDAQoKCg0MDRoPDxo3JR8lNzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzf/wAARCAIAAgADASIAAhEBAxEB/8QAGQABAQEBAQEAAAAAAAAAAAAAAgEAAwQG/8QAOBAAAgIBAwIGAgIBAwMDBAMAAAECESEDEjFBURMiYXGBkTKhQlKxI2LRBDPBU3LhQ4KS8RSi8P/EABcBAQEBAQAAAAAAAAAAAAAAAAABAgX/xAAYEQEBAQEBAAAAAAAAAAAAAAAAESEBQf/aAAwDAQACEQMRAD8A+EWorbOqm6xFhUa4o6Rdo5js9c3qu+KLvb6obkuqC5J9EBzm5C091ZQrVcFxQBjeXZUrzZIOrEBqVG2rsRujbgFiuCNW+ETcber5QC2J8pESgr8iJ4kW8NE3pctIBNqsJIkpYDLUjdZN4kHn/IE3c0bzNEby9qM9V1+LtehVKW6kVR4CtSWHTrtQnJ76p0EZweTS06SySTnzRm20gK9NRayWVKLroGVNJ5EklB4ICpbvxK03FcljLHBm20Adrt4HGD23g5ptSd8Md4oCy03zg3hXato3iO6DvdsGo/8Ap0v5S+xrR04uqb92B6jum19hlqNzxxXINdvD043SRmobfxQMtW7eCxUqeAhNpQflSXHAbSvPQ0oSacVVUDwqlulLp0CpN1F59gy1ljPQr0tPmTkXw9K1UeSqEtdVaeQ+NbpHZ6emv4m/00vwWV2BXBf9Q02ieLK8nVuFWo0zXC1aA5OU5cJ0aMZv0OkpWmoqgp5AahOlTSL4Mq80/osdSMcWmV6sWnQTWWhDDbbGoRSSUVQPFwmZ6sukJA1XCN24oahpU3sXucnqSq9rDGU5fxXIWO01BLEUFbbzFfQJR1N1KkRR1E8SVv1A6KcY/wAV9EebdI5KE+Lj9ienqO29RAOvVGTrqHw7/kvcsdLzNuayAXOm3uNHW5oa/wCn065D4Wmu4MCU5Nbr4JvlVLhnZxSjiNr1A3ca2oDVNGU9rdtCW5x4RnGT5SAy1lfJJayde5nCMVxkyhBaiVNuubBhNrrRYNU3aI0+iVGjF9kBpz7Z9gxe5PDQ77W/gi3v+LQG3Pjay5rC+zVLq0VRb6kEjurG2yKM83NUJRfsVRaXIA2V/Nv4HtjRHH1LGLaCIoQLGOmnwkVRzwaluAzjBv8AFfRltXRGaRklfAEm6eCvgrqzblSwBzaeaK+VyKTXoTcqq+ANKOVRm/NQpS4XUjbcla+WBHmyKNuhO6eaNBcWwC0kVtKLpFnSlwRtZaAvS0iOL23hFTW3BPNXpYAhB7rkdFB1TfLDFvKZd2OQLKCv8mHwYW912WUlZm7lyBlo6ecFUIxrj4Jdcmb4QHW1tI5LbZzduOGgxjcH5wkdXJBbTbvig7Y01uvBlW3Cv3ChqakUmm1aOcdXe+H6YO0mk3UUmTek48FUUpyfBZRlVUJaiptPBHq2wBLTliwrTbcnftngbk31YVubdMAS09sct2PT0VStfssoy9QqMs8gdVCKzSHCDrFfRxz6ijLFKTA6PclyjKuW7A6SVyFGKruyIrfYLp8oWLpsjpdQIqXLJOPYSSa4ZKadsKEa7Gb6Uvcb21jkLVsoNvBG1fB0Ufkud34oFc3JcUzKT5SHJdqQYqrsDKUqdmV16mp9ELzJRukBkpdZV7B2q/NJuvU6qlyFRbuggboJ2ol8ROSpUjotN30M9ONPoC8ZYKm7yHzN4X2ZrUrmNkGk80iqL6tkUJdZfRtrTfnYDrsTPcOa/I2apyAWemTX/ZUc4RkruVovhxfOQG5xSw0SM1WGc56Ka8id+hz8DUb4+2Vceh6iSsnixpNvn0OL0NTjcl8k8Lbiav1TA6S19NXVt+wXqS2qUV8GjsjhX9CUuMPIFU3KOU1aBUorLbOt+pPkg574tZTOkZ4wvkOcmjddShS1H5bRpTqSw6M42lgkorCaAU5+TCAtSXSPUbS2m6Igk3NvuRxntdHTl8h7gc0p7cSQ3ucKbpiSSWAuwOajN8zo6KFK3K/gkcquo5RaXcojXNBcU3+TTo61cG76Birq+xEqSj/pqpZ9gqLw3Ozo4qljJmltA5rTi009SX2GOhGvyf2dnG07f0GFJFEjpwityb47mUlldBwrw8pGaja9UQGW3sRKO6PlwVyXCRZJKcb7ABpZuJllOor5M222VOlyFTbdLaku5lDbwhSksGb7ZKDJ20uC228kksKjQ5yAlHOCrSjfJM3h/BqfWrIiuEL44FJx2nOu7tmrLAbUbeTJRrKOeU2W6jbQCUlldLNui1Ryrr3GkrwFNbL5+AeXc6eCSwSs4YR0i8ZFujS4s5U6y2bbi0B1W1k8qbs5uUsETT6Ahtx+S7o4pZRzTad0jomqzQBlqNZoinOqiiuSvoSOqo22UG9ZvFFUdS6c0VarfCLFttt3YU93cLz1DhvkVKiIz9WTBWl2KFFNdir0RaIryBVdG92ajKryER/Jkr6sbaS7kUsdAJtXYLjbR0cuxLdgHYl0LG0W2yfAGq+ptvuSvgST6gHbyGq7nRtZDutBWTwkZxzzZlPi6LLUSlT5CJt5o1YRt18ZMpN0FJR4M1iibjOSp5CNFLiyySpchcl0E6lFWAY8srlSeUBJKWMmnGLTdFCU47ZZXAo7cNtcdyRjFp+VZQYxjjGKIFOUe5Li5KN9RuNq1FB2eZXGKyDipq3k5pwduxtR3PAVtWFFcgXdFQuwzmk4UWGYvijSSbjdV7BXOOpbpcDU7lG1xgr2Rba/RFttf8lA3O35evUtyos5JN2sWRaqdqvYCybea6YJHfbdIW66S4M00uLAEpSTp0mWe6Ki4pO+hZRy8KxRTfavcAXqJ24YEtWVfh+xbbq5L7LsjXKIgt6jzUV8kT1M4V+5agly2RSS4AnnccxOb8ThJI7O6xYVK7wVRaltuvYSk3WBW1FLamuxnJ7ewA876Cyl0bJ5nxbHUmleANeLYqxyHbJrPBqrqGVcaxg5VnB0cU06dhtqPAXgS3XwOTapYZF7BcVvX/kKWX2ItOfRIu+nSao0HJt+ekBY6epfRHSMZK+Dnvi5JOZXOLd7/gIVKyt1wCnfZl2y7kF6FXqF2lySk+4DddwuUf7IihFc2/cqjHsUZTj0aC5r1HRHH1IqRlfQqvpESVdSIIzb7Be7q18DatEa4APn7fsNz3Vt/Z04MlbCh/q0uEXzPqhNGikrxyEFq+HkHhvncdVHngqimuQVx8OLq5NnRqKNtXUuoknRQVT4LWVgUEk2iSlTVA9aKVmcYW/KRzapokpSpvayCqOE9pZYCnLanTNTu5tpdgDu83YUpqnT6cAS097Vv5OvlSdRXBVc4/8AUJcL9GWvK1thJqux0SVt10MrVNBActVrEKz1ZEtS42snS31I5ZvOAquOpK+FaOUI6nSSvrZ2jJ4s5r/uNJ5CcaOnNcyWTPQbaubE3cE0ytSaw6wQoeEl1bXqyqEOWrOe1tvLZ0UXVuVZ4KoycW35cWaShFXSLKMU6vqalTSVARyTqv0CNuXXJ0bd3RG33Aso+YyiupHLvk2+quNoC7VeGaq5tkU3/VEWpJuttEDbjWIkUoxd0rNtk1yrJqQpXSAVuUulFclVOvg5qK7mSUfQoTk2klwFyb7i3KuyJu78Ac71FdP9mT1PU7XBRvcrM9qrIKEZSSyR6mo8bUXdE27ru5ACnJSptKuxYanTLyFrzMsHt6WFd07VhlttID1McG3Zv4CM3C6ssNPdmzm1fI4T2rmkAvAine4UdGCd9TRlut5oq4dIJoNu+CuckujGlkzSANujJi9yVkitfdGUjNXyZUkBbJZkrslYpgJvDoMNS8UXhBToBtt8Alva5LbRbdASO6vM8kSlu5HYVJW7AqTLwGMlQlJPoBE6eCp2aMucUaMrYRVta6h1Wk7zgvHMv0SdbXYEUk5WyurRItV3K+jKrNqsmd1g3CwiK+pBUpuOaXyZQeU5EbfBXur1CAlbknng6Zp2uhzhuc8vbaHKMv7c9ShxeH7HJz3JU3jshxjV5fBlGNcdCHBcsJpPnqytq07RVBbWLZGroA7oppKN+pIU5NtZG1FPq6Am/FaXDAT1FC7wB60GN7Xh5M9OL6V8AcFqx7Me9V+LYZaeXSJFOKeL9exVaf8A1EU7cXbYnqx2qSwbwk80aa7KkgK9SNJpWZVLMWmR/jwq9iJ1Ly1zwBXFprGQuT7foUlcrolNPnHoAZa1rh17EvzDko84sN1LEU8cgbfKMqUW+zE5zaS2mk5bVcbvsbzX5VjgAvUt/g/cy3P1ZXudrDoO+UeK9QNJTXTr3LK1jy0P80m5r1Obg75T9wA1qXxS/wADy67dfQUo6u2t0En1Bs1FKt8WgKlLskRyrk6+CnVzz6E8OF/kBybvgdbV+VIcIR70kL/Tp30A47oOSW537CcoVhtsrUKdIkfMuLAu7T5qTwXTppNwbRFKoNVksZvakosCrVxUdNljKTT8tGU3btMWa7BEsjzwclqNcxHuuqBHRFfJzt9v0WTa60FabpGjbXYmopNEW5LkgSTvk2bIrbyypZvcBWsEjfUzT6Ngk6y3+wOjfc2O5wnONdGFa8U0liiwenqc7p+hPE3O1a9kbc+0nkBR4RpNLoaCq8UJ46ASElRIu2xQVxuqI4u2BnuroR5i+CuHkpyAtKHcCxltlXOBtnOManF9Op0pAWdbU2zWuhGvJnuZexAlJVyZyTRIrd0LspOggWm8cm3OyRXm7HSatOmUSLatVwjRbvjpYoxlzjgKUtydr7INue11XJZS8rM4pqk13NWKtcdgJKary8nFvU5O2xrO7PoiqS3NbnxYVygp225Y9jvUu774QVJPrkXLtMJ1xk9RW1CTM5TWk/K/aju8ZbwzlKUVGt1uwBpz1HHMWv8AwbU3JPi/cknclXCDJ+ZK17FVY8XLgS28uS+DO3FYbVcUXwmuI4CDUW6UpPuNKHSMm+/Y0odNtfJKalUZcLoFTblLOCNZb20KNZT3OyTV/wDyBlOVKsIzd8tkyn7IjTrkBRWGory39hem2/xMnPo6RGp8uT+AFHTl2pGmk5OpcLvyRp9bfyRQleAOqjGUI9WRxV4iSG5RpvIkpdQI2oxdJ2c81hid9yLGQOkUsJ5Z02x2vg43h5a9jOdLbFZYR0lS6hlPbGtysiknRz1FGT5AUtZVyrL49tPBwpLr+iqKfDz7BqcejxN0bWBKSas5JeXL/RM1hhITtP8AGy7ppYjYotvmhABPUfMa9wyU31O1N8sjiggLs5GcL5kx7I3kqrJCuXhpvMpF8OPd0dKfdEpdWAFBR4szinyhNdjJfKADjFp4SLtjX4r6K49v2bK5ZVZLjobqXHczqwJJdURqTFKSVf4Im65YESaXPJHCb4YlLy4Zt2OGBfDe2m19nNQlHDar3OkcxaYZR5AKh5lulXoLyp3ufsheV032NLakmlREZyjt/Fv3NGTb/FITa24RIu27x7ARuVLbEqUqal+iwlhrLrgD8ZqvKiixitzv9ssktryclDVfLjjrQ3u21Jr4QFm3utO8dDbFui7fHYzvFN8G3S3RaWSCqNZSbNKE6VUSWp5WrXPcm9pJv9AKOm2/NPHZCWlCKpdTnHVykuBbpJXTBqxgrpvJnp3KtzD4lSp1Q1NOSCaLhDl2y7PJhbUHetz4psj1YuLVP0CrKGbQZaXXsLclBL1BLWVvGCmsnKNJyTMtRLErfoc96clR1lslH8kn6BRUk5PbflXUWezb9jlp14kqd2uh282F0Ai1nFeeDA9RdhuLvqFQa5aYGUotPJt0LqzKCzRlBrmvcDOUaVJu+pd0Ky2Fq+WzVkCuWnL/AIOkdkkmgqnyw1Ftu+tAdKik6aNca5RycoJ0k2/RCg3XH2EVpUm3hgSVrOBTjN80Hw5JW2gqxgpN0xrTgucnKMZPG6n7FelfMmB0a05SV1RJeHdWgrRji2236menFNqKArlpx62SMo7rSrsVaSt2lQ9+nBcIAxTzdIkkk0k3QvEg0rM5q3XRBCoqo2fQ2EQZUalQLd4KnfRgLymXWiPjBFbu2gEHFmrzZbZHpx9X7sKMtWMZU2Xc3+KYowinhJCwVBknt4/ZHHHQTWCWkiApSxdCSu8GckBzV8hU2tdG13Q8NLNnNNU3uwZSjty8dGUdaSjeERbe9hU4bVkz1Eo8P6COsWqvIZNVVKgRk3dRl9B/1M4bQIunm76MTqss5xlJcQfuyTnJ8QCu7xG1km6nwsoG7U2L8UutgUnhvUj8II6KV2n3EpP0v0OO95SnnvtHuTrMvhBVTy7bQ5Py45OapzW+MqXXgj0rk5XtT7MDpNybTi6x7nNuSq3R1jGKVbpWFpSjUt9X0YBS7IUlGMIylJL5L4WndU5e4moqMVSfwErm9VRaUHa9CPUcsKMpfB2bSq0kaM43XQg4NOOZJq12JpzlJ1X2ei1sTrh9jR1VuWH9FK8+XFUkvRld8JW64OsNWpNOL57EU/N/8BXLZJq9vvkig7pxdd+TtGeJeWrItSNyxwBycIvCtBcfKvK8vmjs5pr06Fppcr7FHLSbTVQ46nRamonmNCTi6pO+5Upt9vcIk5zcUtrA5TvCOktyXKo5vGGF41Tq7jYVdebUS+CunSvkj2x6Nv2ASUUv+7+i+TlTd+wJX2IpT58N4AajDo2/cTpO1H7OUdSUVKcoUunqR6rawhB2Us8Fy1bTOD1X0ix7nxKl6CCz1KXkjdEt8NokZLNJIkptuopV3AcZU1dtiuV2cFKSeKfuJ608JJCDtGMnJPlknGandKuxyevJVTyFa0llr9iEdpKbWcluO2sWcJTlqYcqQNsk6UhB6o6e5p2jp1aR5f8AUUeZP5o6acWqvd9g66pSrj9hbavr6FUFX5zXoao3VN+tkQFJyWKj7k3O6xZ0i0uiK37fQA8/RUipav8AZV7FlJpXYU5SWGFZrUUvyi17Bk5Rp70/ZCcZ2CenLm/iyiycf/Ul8GctJ5km37hWjLDeBx0cq8gcpbbqLkvkO2V3dnpenHsjOHwKPPtm3ls7bKS/8iUcclkk0gK9u2ml9BSilhKxrjCI7SVoiNdRwitXHgK9qMuAIk3wzONppyd9zQeHjgmXZVHwuVvbyNxTVOX0G2ujZJznswqAcdHTjF9fcq2KqVL2OalOm3n4NJzrCaIR2SWfYO9Yycobm5XJkem2rVfJR1WorttUJuLTeDgtPFWk/QSjJRa3JquwHaotchpZp/yBp5SaV11F3bXJEdOt2jScXBZRzUeOX6ISVQSWKYFv0/RcVlV8HNTjb8zI5xapK67gjrb2cLkzbxTrJy8R1TiZaj3VwCOkW7fHIHGTd7ksmlOTrrYVbi/N6lWL4apyb97KtNZr9IEEqlcuSwa78gJR2vL/AP6kyunxQ09qsk2r8xEbhUR31f6NcNt2rsjlFrDvIUtRUvNJs1wcVuwCU35b4eBOKqqlfZIIjcc4v3YXqbVzSKtJtqrVc2iLRirk5tvsyq0prbeLecdDnOU3HCaR0WlppKqbQ9n4t9UB505OrjaC3KrUUvg9qUNqxlhcdNPMRSvMndNrH+Syt5UZM7v0dV0XQsZWsOXuKPM9LVp1ixR0puFUr9Dq7b5s0Wsq2mKBHQm+lFX/AE+Xmu7LdNfk/kaitjb/AMgDwF1ljoZaOn1pv1ZMXgWeUwNsjuqKX0NVmqwcWpN5kvounHcm3J8gdcJ9wuWcI0aUurddSuwjdOxFVi4Dm8YAsUi49PsFOuWTZLp+yBOWOgHPzdjbZLmMn7E2RbzGa92VVepT5JLVarNv2MoRus/KK4pOmn9AFarbymNamfxZVDKZdrv8aAM274v0ZrdXSRpwk5cKvcqgQZXXQ1s1YNtXcCty2exzjKS5yjoljlkUUurAMZ9o2dLk1hIipFXABg5JO6Zo7vM/LRY7aw2BXbp0BZT2Lo2ugXqpxTbascUvCvLfsaVbePiig+IsXuNv/qq+SKMeKzyKKXb6RArdtli7SpMzlXC6EUrXBRZPbmsWHepJ9DOV8pF2qrr4A0JJK9zeewrTXD+gadOPFZMsuVkDTVJUxeXbLzLniwpLhr5skYxTfH0ETydFJs1RriV9sFSWbzkkUnfOH0AteS4pZ4tkitv5RscfxXOGZwuwDjd+GPctJp7YtOiSjUsY9LKnLb7ASk4+Z5ItNPjn1M3KllEuSq5fQVnpW6ffJJaS9X6mcmnltehFqbU84ZQoxSTUV9iqm0oo5wnJwaRt07Tk3fsAtzvbSxmy08JvkKTq28vox7G2mp4IJ4bfF/JJRpXY5Rv+YXFbPXuCiqq7LNvbFpOq6kSj2b7nSSjUcNIDnpyacUl7jco9UyrapYWQtK/wb9yorlj8HkG6laQ1F08KmbbJ8xVAGEnWV8kainSdsXhVnDJHTriIAVSllocdrg74vFssdOnVIr0YvlIDm3FP8sLohvV00Pwo3e1F2R7IhXnerBy4wOGpFrh/COmyN4Ko1/IpXPxFTdS+ieInjbJ/B1i1JunZWuxEcIJtLcNVeCRj3YlSdWVVTxj9GdvlyfyZJdy47kBcfWX2ZYu8lddWzKgMnnkGpJpqpfoboM5Jcgbc8c/QZN/7h7rRGwM7wZxM37mbzwAdtoqiZyx2ZoydX/4CryTN8fsu7F038B3dal9AZ8uln0FHgkW3x1LxzYBg6vyrnOSSbulRlhuot2XbK8Q6FFg/KrJKcTRi3FKkvkkYtO2kiDKaqlFsMfEvNITU6xKK9kBRdV4tf/aUPzbqb+kWPFJ5IlSp6j+ImhHP/car0Ast2x13Fc9qugtLa1um1fcTcVprDfTIQYppLKSvuFyUZPdLnsZPT24i6sTSUlUfsKinGSw8e5VOMU1a9rNuguyd9aKpxV019AF6lvy1RI6krrj4K51lRbvtEcW3dAHeld737I0pSTW2HTuVSUv/ACZXS8rWAIt924/LZVJxW3cm3d+hVJ1Wxt3wFKTbqCt+oQLf44DGMrabdMbWolhKXoiNaj4g+eLCqoxSpL7ZVtguY0DZq3wkvcvgyfM0AouKvLbfoWWoqSUQx0HTcp8ehnp8f6i56AJzvbVcCc6eKwgaaUW22qvqObi5RpqqIDud3kzcqdDTTk7awurJhRdyXAQKfCbsUravc7ApLjedHGNJOS5ChGlm2xxurybcldMtxb5yEDe7VXj1LuSfLF5E7tIMWpK21foUbertW/gHiO3k6qCTuwVpuTaaZFaM58pr6E5usyXPQlQVNyXyG035JJe7oDoprbbZzlqJvlsklFXepC+12c3HhwkpeiRThOVZyR60qpXQvC1HyZ/9O66gxzetOP4mWtqS/kxvQms1YktWOLq/RAdIwpF2WyqvUzfZkRFGiqHdmszKLtXclLpRmvQnxQFaTXBzcUuljeepGnXQiqljGCNOslt10YU5P+Ne4F2+5WRuXWSRMtZdhCTTRk+wNySwmyxcqzS+AGpEUqsKm7qn9GTq8AZtS/G7XqRJt5wxblTujLUTwmgBHEuc+xVdO2/o2572kunQsU746dyqkElFq7LtTSq2RQTvuZqMUt0mvZ0AkvT7C0lzLBE9NJO/2XyVdUgOW6KkqdnSLcpPEml6CSXlabpruSFNXn1yApRVZQmltVOrQH+i4qmlQQdmG3JpemCw04+VW2q6siVRdNc9jbmnFTeH2wA9mmne2OPQqrDTpWFfk8ul2RceG+tZINFp4bZfKpN4OKa5XBZRbWJZ7Io6b41HzLqc9TWVqMWq7nKem7pyYY6eri4P7yxFdVKT65Fc0+TmtDUrDafdlcKa/wBSv8IBprrOmR6i3XKXyckpUtnmfpwiLxKpQf0WDq9RW6w7skZybdX7BS1OkKf0JaWpJVLF92QZzadPcvZm8zVuDovhyed8P8kUHw2q75AibePN2SoSvhIjjT/KKx6lcZKNyaXq+oG4vCTfqS2l0ZowXXUi2zOKVrxPpABucn+LS9BNtLCv5I4QfCfu2amq2xi3YF8SXSKXrZoylu5z6DcYvlZXbBYxg3abjQE2yaumgpPhN/Z28v8AYD2bsO/gIDgnWf2bZFXYpKN2o5s6LbWXTCuMdqvam/gq9YSZ0iq8zm36D3RarNgriptxdacY+jZL1Hw17I7PZVuP7A9RLiLCcc0pt0mkJQm3nUfwhxnj8Uvdju/5IK5eDLdb1GxuNKtz+h2iN0kREi31GD2s1S6AJVnk25ASnnhEUJdZIDq2HD7E2v8AsvhE25/L9AV/Bd2OQSi7tN12NsvPHsA/kLWLsL00usvs5TumkpMKcpxf8l9j3JVbPJtXDoUbWEiwemU0ldNr0DHU3fjH7YIw1GsRx3Y46TSzN36AW5PmkzJyTf8AkSil3fuS1myILppqTsiUFxTFsT4MopPFfQUVKpUlgr33atiXPDKrso5wcqdptp8BcZOOYvk6xbqfHJtzcV/wQCOmqysdyOLumrXqdU36/QVO21tks9UUCSko9Gq6CisdeBzlS4tdUSM3ccVfUAtYy216jk7SpPgPmfDVdTSkkuUrAsMp4fJquaVHKOpFSayxXDNN9wOjUbeM33Mq2yV37g8RX1fsuRRnJxlWnJ47BEg2sY+hX/bHfANOcm86Uvc16niYjFpgdJNNprcyaq80Wr472GctVNeVcdw6k9Ty1XzYHTba/KfwSEItq9z92FLUz/qJ+yEoNNed36gZakoqtqSRfEbryo88oyXOph88GjKMX5tWcqXshCPS3N9qYHFu3+mc/EhVKMn7Fe5q4wr3Cqk3wl9F2Pq3a5SKpUsy4M5tybT/AEAGtytL7Zdu5Pd/kqlLmjScqvaAY6aUm2+gmlnj5I508/4Nvebi38ARq+f0SMesufRGjNyk40a5K29qQFpLLfyyWnjcmVajVJz/AFY9y7fpAFVVJFp+iXoVSvt9Gbkn3+AI+aUWZppLlFlbrlGar8vsAtO/+CpPNiStWsoL7ASv9yS9Cpx/syYSzFL3Imr6+1ALyvoypxXPQlp/xmba3haeO7YFepG6TszmnVfori7VqKKs9V8EE818oqv+36Nuf9GTfK8af7CF7uyJQ/8A8zed9EvkyU2nmNgLF0Xoc9mp/aH0KOnKqlKvVAWmbPYvhxr8mwyhFO8/YF49DlLXjBu6H4em80jbI1W2LXqBxnqwlTW37OilpUncbHtiv4x+ibYL+Mb9iiPVh3t+iYVO78sn8HX2J7kActvSvcy3XiC+yyv6KrtvkKMXKna+LLB2+IoMpQi3uTXyZakNywULdGLe6aHavqcfGhu4/Vier5q2y+qCQo1nnnJvLs8vR9GcZS1M+VfIITmntuK65EWPTGEeXdtdy+W7rJwert7NejJ4zr/wIO+oo03VGVYqKeFmjjOWq4uk/ounHV6uk+7A6pLNPqNJYtHmfib35WyxeqoppY7CI7RglKTx8i65rKOG7Ut+Vr5M3qXGwO6imnlmiqjjPycU57m6YtNyIQowtunH3NVvMnfoGMGnalS9iLGW2/0A2ltp/bZNe90WqrHUKldrlWXWbbWOnUAedt+WKfa2JKd3caNUrt0rN5m6V9uUVU2tutsa7pBcW7zwOMZK7kv8hcWuqAzlqZqWFWLJU5Nt1z0Zlbt8tFScVzmwJWo7cYe9tDdxcW1yugak0/M79OpW41FKTVdwIt0eFYZObeIpLpkTdY3Nmxj/AMgHz1W1WiNSl6nSnHKArebrAA8OUU7Nl4f6OijjLZVGucoA7HttT+aNslh77+Bbaum6Ikn+Ta9AM4v/ANSvZEpttb5f4G4/7V7linWEErn4dvLePUSjFZfPuPmVIMoNOrA21dL+ySjFP8b9RZ63XSxbe/7YHG/RJmbaXDY5Rp4p+oo8coK5J6n9a+DVOstpnXekvy+kZON3dgrlCEm3a+zpHTl1pCXWsESlzcQVqb/kalfNsf0R44aIgyaiuG32DGT3eXTbOm51loMZrdmTYC3PrCipyfEa9zSkkHen6AJuX9SW/wCrZL67myptrqUZ3WFnsCTmuI/s6PC/5I77xA4vxmsqkXZPFyOjdIE3K1SdBW2y5vPuZRdeaV/JlL/Yn8i30vw+gBTX837UXnl59Bbr/i18Ec2uaRAXFPnd9hUIbsxlb9bH4yRVNvlV8lEempPLdLpGkaK01PMZ+7ZLdumJN2uAJenTbi02+GSK0q/H7Ik3Lt6NCUb6/oCJJSbSVv8A2nTf5WtyuuhFDy5tgSV16dwFOfdr7EppqLVVXIZRuKr/AAHY4peVvADbw/U1xSWazeWFxdcmjB7VhEFW23n1I2nKPOGKq7YC3c1f6KHi/QqXZ0BYdJ/oNSut7+AOkbt3lexqvGOTnFKMszbEpLzNECSavhWbUtxj/wCCb24rgM9S485XuAnF2nlm6LLSTItTak3f0RTW7Fv1rBRtsb8zm0a4RXDIpQ5dpmuFLD9AEpRUXUfS2SOpCTbaSNcakqd0cnOKtVnqB2ex2n3w7Juj06cnOKxaX2XzNrNYAUpt9MdDb4voRWnTeH/ksopRpcf5ASnTylgkpxisrnNHOsU2mZySdyr7AS1ItYsUZRWWs9Gc4zW59n8iTfuB0lOD57BWqq4+2R11StGnd1VKgF4qr8VZt8uVtSJS2qv8lTiBnqO8foEtRuWGN7b5lQWo3m2AGpSX/llSXHJ22pJUue7NsWKa+BShtx3XuWCT6MzXuJJL+SQEb4qLfsbdJv8ABot1zL9ir5IiLCZnwmmSnjAkvQDlKMpYuvdkWjTzP9An4j717GhDUfSRVdnpQa8zkyLT0k8XYJaep0b+WSOk7tyyB1ltS4/YouNYVHGUZ4W9fRPDn3v4A9DkjfBxjpy7lcJ/2X0RDdMMljkK05d0vgvhYzJsqs2qy2/gjklXJVGliN/IZKTWYxAW7GIsDbrDfsKL3JpWvgzjtXLACUk+GzbXabdfJ13KuPthco9dt9rAO3l4ZVTdX+jRnBXdE8SO7DVsBOMd/L9qL5Vt5XoF6ii+UvgstTCln3oBK8uKyWpJcZOa1s1bz6UPzNZi8fsDRc82unQMZTvshJtL8JX6IEZZeJetoDp5mlx7kcn0beCNp3VP5ObnJVUHVd1QHW3Sx9sm5pK7q+5ISbirS56Ghud+R/8AICi7usujbnS9wqTVrw2/boHxHaWyff8AEQdm/Pys+gVTk75Xobc3LKa+CJPfanz0oIrjt4iarTdUHalLMpX0EoJp3eP9wKvlUfUE/R89Cxj0pdssDjFrlv8A8BXSLUcKzTjUnSfyBQaljmu5ZacZZpZ9XQGSf9VyVRebosoU00m0nmpHN6U5PyykvmwF5k3XVMOxct5RVpuNXPnpREpNNqMkqq7z7gS6vcscGSjd31pVkz0pKL8zkvQkYyi8yftSwA3GPdsteVukl6HOtRzdyx0VDuoupL5AueIXT7kuuUg3NttbeezNepXKefYB7pNWmqRMtZ47hjHVylKHyLZNV5l9AT+WKojeer+BOE9rW6OfQG3VdedLtSA6U+qfpgWXHg51rX/3b90LbqJfnUvYB8qngL7Wn6nNKby9R/RvDb/+pL6AadtK4v5HbTTpe5546KT/AClb6o6vTiqTt+7Asmrq0RRUn+RHsi+BqSf8VT7sC7Ix5dG8t4kXH+1ezJOeklcpx+7IjbvNtTE+OTj40ZfjGUvWh7tSsaaS9WUNyaf4kbb6WTdL49iuTZBXufKQLkm6RZJ9G/YEd3WRV4bUpUZtx5l+iO3VSr2L5n/NkE8SPVr6L4kOskB+tlim2quu7BF8SC/nE3iwr8l9klpR3Z/wGMK4i/goa1o1V/o5y1U+Gv8A8TrwsJ/JLX8rAC1aWE//AMSy1VLG2T+BSfoF6jykgDKUKt6b7ZiSMop402n/AOwT8SX40JacqSbXwgCnzUH9FUksODXq6LGO1vLLXfK9UAXNu6jmuSPUkklSfyVQj/XnuZwg0nSsC77bT2te4HKo25Jv3K4xi7ajfYyxxFAaOpCMLlNuzb4KOdzXqjRj0dd8CqVrNfIHPfF/wdf+0viRp/l7UNcvzyfsybVttSkAFrwjF4l9CjrRSW5yt/7WOKpZuxacfJtp4ugD48cpN32ph8drG2dex0WOE20bHWPLCD4rbW3Tm16mWrNt/wCm8jfKpIkm0nlLsgDvna8kybtS15Wvdo26Kbbn9Mk5p8OV+7Azeo/4xrjIoxntSb79MAlqPzJRm/gjlJxvY7XWwpy0pOS8947FWm1Hpd9uTnKeq0n4dP3LerSpK3yrA6bdRwtyg84wDZNyvdHGGjVOsJL5YWnbuQC8PUbt6npSQ1B0rbAoSurVeiL4c7T3P5AqjzbXugcSfme72H4ctr3SxfPU3hKl5gBNOXNr1KnjnpQtseHLjlhey6U+eoESfW2ZJ9W7Koxb/KRnSxf27ANPrVrgnmTxaddGL7boibTun9gXa33+xbUlzL7BcnL/AOS7G7drPKsDShBu238MyjFfzlXuRQp1GdNF8JN25NgSWlGOfFaXuDw05Y1G37jlBJ5SEt3qwAtCaz4k/Qb03m5SYpSdpIviTVv/ACBycIrpJljpab5ixPUl3S90WGo7eYtAR6Ok+YChpwX4w/RPEk5VuSL4kE/NNhDr0NVAWpC8Nv2RXqLpGT9kQHeuTb8Ebj2N5a5RVJSt8k3RvlfRkorpZKilmLsgbkqugPUX8UZptYiZQazgA+I3/H9jWqlyl9kUMZNSSXlRRfFuWI/JlN8bf2c5fmuTpSfH2Bt8r6fJfEj6slRXX7ZmyCvUdeWFnNznTwkdU+iSI9qvgoC1JPOBbm1xn2Jyk04lTr+SAm9q8N1zSNu7Qd9uorUrTkmSLy84Alv/ANNr7JLHMUPC/H9IOWrSaYFu+F0DucXjj0TM1JO3KrMlaTdt+vUDKSkrb4Lbrh4BGrtIu6VrGKwBZKUlSTySpU0qXybz9ibZbW5PPoAralmUOO5VNpupJ3xUWCEEvybbaElSxXogEnJ87vqiuNeZOTtdWBylims/7iW9iVL3QQncpYjH7bOjiqacYnK5JJblXsZyq25vPPlAeFXGVSpGbrq38HBKTWZSr2M1K35pY6BY7SnU3jDJ4lLjk5S0t35SlnnOTPR04q1Ful/bkYGtSWLa9hPUk+ZJHJRimtsMdXY2oPnT+bAXiS5TWQ7knFyx6oijp7WkmvYyWnura8vuA5S82L78gUvN/wAmlCLduLI4QvEHx0ATlb5VX3I/NxKmsAenBVUEn0uRtqSran1q+oGnSktzTXXI1VuNxaT6MDhGSVRV+wlFStSX0qKFJwrMlXdM5ylppKpROkYRkmq47oMoN+hAHq6aXmnG+1jUrrra7Beiqq28jUIxVSzXVlwRyp0+fQqfZkbiuWvgi1NPC3W/Qg7LWaxt+0bxnXC+jlKdP8Wwuc3xD7YI7vWml/H2oK1pPn7OL8W8bV8GcJv8p17IEdt6aTxfuLe28Sx6Hmjpvje38DWi+bYHac6lhkhOpZqmc3pJvLl9k8KNcSfyB1ck5rj7EtWK5lE5R0oPmB1jDTSpRXyEZTj1nFFerD+30Z0uIorkqwkQcdzvFfItyvhfRxUp7sRHc/6lV0jNvhFqXL/yc4ylH8kqM9SXSHyB2uuiA1N80vkEdWXWP0Z6tfkkQdIqVO39Ev3ItRVaj+wua5aKNJybwkbbdebPY3iK8RYllfi0Blpt5cmVKMetsiiusv2LaqAke7JJxz5bK3prLYXNPiNoDNSccJJF2+Vbv2zRnikkW21+IB21+P8Akqu/NLPaiOU7VUjNz7gVpxeG/okXSznIJSlHmaJl5VNXYC1JPescdzObzbT9Qzk5NJJP2D566JMDpCbWXn0GpPcvL+zz7W6blzzQowzSyB0lVZkl8hxyqb7k2xzn6K1UMN/PIDpNrKv0FtTSvj1OcejTeeRqLbVxtgJxSum6JhxXowzT4dhWHWEwG6SdceokrzaVgljDwnjHU1W/yYCSXe32M9u7Mn7MEXGLVt5QXOPKjIBuUVJq+nJtNRbk76Wc3Npqot46IsZTylHLXLwIFJQr8qFu0m0m+DhWo7ajFfNmjDVfL0/oQdpammsLc/kD7qEn7ijDUp+ZfFF2aq4mvlAGLlwoLBLcatJVnDJ4c7W7UXwiPSim92q2r7gO9zVK37kUo/y2qvgPgN8N1/7jL/p11gr7t2MFepCnskr9zLX01F+aLfXJJacY52RTsWxxzST9i4J//Ittx02zS1dVpKGnFerYlG/ydv2CopNJkEjHVle/UUV/t6GlpbuZy+StK6RlKlW79FGhpxTpJX/kaxJukGU+0ZP1oLnP+kvsg6qWc0vgu5f1OcXf8afqytu+YgJzV+gdz5ilTM5L3A21xhAdYy9aM3fVv4C9WS7PAXrN8NfQHSKjfEiuPZP7OMdV3m2VzntaUX9gdUlfb5HhR5PNU3nAorUSrdFf/aCO29Xzgzq+pxjDUd+b6RpRkuZSa9wQ0u7Eo9mmFJPLFFpcRfyBUvQkoyfajVKWLaQlCCXFkB2yaxj5I9JvlJj6YsnmfcIi0V/KK+Gbw6vZj5K1LOH8nOpvOSqjjqqXN/JnLUXMGy1qf2r4N/qdWBzblLmL+jpCD25X2xp9epJSd84AiSXSK9jUurf0aSzeQ0n0kA47YLrQnqKrSNGHlSr7LKDeAjmneaJ1OjjwmguEvRIKEkq5XwFunnhnaUPX6A4U220AHJOaa/wWb4pmnFVbDpxuWVwFZRfd19HRSpcFpYZJvFKLb9gjboxd8ElqueEqXdm2Ovw+2GTa01Hal62BVJtJVRd8sZX2BRk0trVeiHHpunbvqBpSeHS+zKUklKlRJbYrLk2wuVrCxfVAZyk1d4voh3JL8vXLoiSp8mtPKv3Ayc8V1FWWnIkZZXKoznV+voBZRfCleCxhb6Nr1BLUdqnwix1atuS7AKMMttRRdv8A7V7HHxVhpXfuZak20owx6IQdks22jbXmotnO527uK7kctVvCx33ALbJySlGkRwjTqOfUFatfkv2Xa7e7U9wKvy8zq2VxtXyvVnOou90pNdPU6KGnhJfZQHzykWU8c2JNK6hF+pm9/wDGs9ERQ3zX8W16k3zbtRVe4/8AUTwl8iUJZePgqAvE9F7ilv67fslNPOS15adfJBo7pJXXrkjVTrcrNFJK7XIqim2BUneX0C4W6bdF3J8/4FGn1r2AHhxT4d+5tkOJRv3Onk6p33TC5QWWvmwDUFxHHuXdBcJP4DOSd7UqJFu+LA6KcW7UBKbk8RRE3nCHF+XmKAG97sR9xSTa/F/4Mm7y7XoZ3XVgFNLF/s0mn1NGl0sr44AsXiqFKSVKOX1fY55vkyRA97K5tdApeplzlgXfKvxLGUnyqDuXdFtdwhb3xmgt3/8As3PCI49cBVlKqsMn6MkvQyUnyUVZ5NaTWDJO8JGkpYwgKp5/ErlJ8RD5uhrn2IFFzXKLJyrCB/qWGXiAJymVrCbbv1OLc1eG32szlK8x/ZQ3vXVv1JLdX5IMpSd1FV6sOeWFLl5d+5vZkjSab/yJV0sIqfqyZ3Z49zJR7Nv3LtWHStACTV/lZk21UVx6CTaT4ViTk7SklgAKLbjut+g1p5WGvkm6VLPXgT3Or3AVxbjeKrqzk4tJK4LtbO3hYz/kjgnSx9gc5QlXMF8MzjLpqpY4o67Ip1as21f3XwKOS01avVf0KMYNO5ydPmxTjFtJp+5VHytABaWi8vPuHj8Vz6HVpxafTqc35XlYAUFiksX1ZYppfl+wwkv6lxf418gby7vywkKldqUarqjmqcntWfctLltdgK9NN3fAHCpPKv0LLalh37ETbwlgCxg1F5yaVuPJJSdJUv8AJZSe3CVACO1J3n1FaSpPlg3R2u2qZah6N+gCepeJOlZFNJJpt32ZHKF3sb7poUUqW3TXIEi4u1TIu1N5Oib3PEUROTfT3QGg1wo8Cc3wlREpp3aXwGSe5+bkBUquTv8A8F2qllfYXBPq/s0YRrgDPYm/MvsNxXNe9DddUveiRdcf4AO+LxG/oraSTUWyuT5M5p4z9gF6n9oy+hPUil5YS+iRy3/ydMLlp+wHLxcxrTl7sUnJq00JNLGEaVd0AIxl/wCpT9hZf85FTXYq2pAHO78f2JRk/wCMV7sW1WamBlGXeJtj/lRU1eRLb2ZEDjCSRHfVoe2PYlLt+wox3OXSiyi/7C22RpLlgBxklar5ApSb5wdMNcoyj6lBU3xTkGV85s7RSTzIkqawwBDd/UWeqJGCUr3v7K4p5U39kG814wSV1kW1R6v5ZHFMAY9y0l0bFcV0MqXCKDLj8P2CrX40/U6Tm6xBsm6b/j+wIow7FairpMP+pFJ0rb7ifi1bcQFarCLDm5LPQCjqSvzRXsiqEk03MC7Vb8q9ycPEUjOKV+Z/YUu8pe1gJ5pXTvkrpPL/AGGVPp16ssqvjoBpzjFd8XgCu7xGxrMVhcdixd5pXwwBtTe5u36CSjFZbXqL0/yW0o2mgBKVSpPh59SqcrkqeAamrGNZX+Sb90nUJy7dAG5SvEUaSnXTrz0DWpWYxS9WR6c3zqKn2AUYycV5l2DaWW8khpea910+4nCC7NgDdG1eeuERJtXGNHXCar9Bb83UCqLyrjFUTYrf+pbGkmsJcEUW107qgBUUnix7YKnWSKKlavAnDC8yXyAW4rKSJuaaSjaQ1Cuq9SJLvYBbv+NETrlZOjUbJw+E76gSMpLp/wDIXNp8L7NNu8ppBdJ3VoDpCaa70Sbe7hMSrbhUFuXSgLd8o0bTokW5cvJevIFUauiZK5Ouf0RZV0wNsbZVpOjm5NvqbKdZAUdJO7fUvhquQ1K/QzTTwmA1p9UyuH2BL3HnswMoNPgqi0a5ReU6NbqtoFq+HRMpdSrGLNnNOiA1JvFJCUX1l9B83VoS3eiA2z/czOHq/kyl6tlu8gFQr+Rnoxb5ZV7CbYB8NJVn7NtS7iM0qCDtXRGSRaS6g8v9kFNtJcEVtW8ehHXWRsc7gNJZtsLjxl16AlqR3Zf6LKW78b+iwdI0kZtJB2zdW8exNSM65XwgG6pMiz6BqdLzpfBFpxy5TbYDfBMSWHaI1Gklx6FdLhugI3XCbaJubwoyGnFO6LvXbqBzbm8KLv1ZJqaksKvc6OVukmjXbaoAbXtWUKsc/oruiN0lbAqhxc5BcNzXnkvZ0KLuKeAbVKrAeyCVW3Xdmio00kvYipfxM5OqjHIFT6JV8Ge/cuUwea7f0OW67wgNKMmuQuGWnh1wSTtZujLbv56AZQ5zRFGjYvy/s26VZapAKMIt9WRQTeLMtRRk/MvknjLc9rvrwAlGubIuef0R62aStexo75NUunUBRVt5FSUbVMyu7xwascrABvK5K4romK6T5+C/kufsDlTVYVeplNrG0biscGdNUmAXPdhYYJRfdHfCSpokpZtYA5waSySlWc13OjcWnuVnNyXRfAFvilQk3a6ATXFNUdG4tcfsCOTbLbqrKnDk09rr/gAK7VklJxlY4yimv+DOau9oBeo6FGUn/wAknJN4iFW/T0A6ybSw0HdWJNAcZdGWOnLq1XsB0VNclbVcgWl/ufwZaUEnlt+4RNv+5l2tP82WMY9hUuiCuVTvE2Wp9JJ/A2qd2BpX+T+wIlqdZL6NU/7foyUF1/ZU9NZtAbw5PmcjbK5m/sstjSb4JWlV4wBnFV+T+zRVdd3uyqUH2Lhq6SQGcU426aBsg2roblG6RlJO6jJ/ABcdNUsfRYuFYQZOW78fsm2bd0kAvLfDNKVNUiVNcyXwSSfWS+gHKTrBJNtBz/f9F1F5eQKotvkzXqHpyw7VWZMBr0Lhh2raWMYrhsCqN5tEUlF8W/Yu1VyzbFhp0BHLzZRVW52XYs5ZNl/zArazQf4+hfD7yN4XXc+2AJpyuFdixjw8kjpUr3sXhyfM3QFlFLpjHJnHtIMtPakt7KtNbb3v7INtSzZZKDaTbsLhFxzJ17m2QxcpfZQoqNe4JQhae2l1KoQj/J/ZWoqKbbfyAfC0Vysi26caahZW4X3M5JOkmBEoNtbP0al/UniLc2zeMk+gF8voaot4lXsB6t4ishW54SA6Ul/KT9zJPlI5031prudop7ecgZRbM9O+hPMupk5NN7kqA3htexPDSeGapSeX7F8N98gbalTv3NtV/lSMousk25Au1K/NZz3Rtp0h0la6hcIvlga0v5L6Kq4tfAaj3yaNIDptS6oskqVUB4fdGm2qqgC1L0MtzXCDuks4+ybn1X7A6JSvLj8FW5PmwLUl/Qj1Zf1TA602+UqMpJLM/wBHOM23dJe4mpS/Kq7IB7oPNyfyB7W7XPuZaaXQsUBVB/2l9k8N3/J/JVuK5NcAbZhqiLTX9UbzPJba60QVaaXRfRdqvgKk3w2/kyUnywHWAyhaLT7lz3CBtSK19FbzxZHfYqqnRlPALd5Kl6Abqgy68lkyoCJYyhNJdEXgjbfCwBH6JB1MxHWMhbTjSAsFFJWy1C7YEklzkrIEtrVESjYVXQqg7yUaWI4fUmGuRbU412ZdlICXH+wHKKd7kLwVVuirSSWAB4ka/IsZbuJFUM/JVHl9wBviuvU3ixa/Ib01tz3JGELxVICT1IqSWfoinFR4f0dJryo0FcOlgc/EuOIt/Ak96t4GklHpwbFJLqBxjbvKKlH+THBJKXuZrraQEjFLrw+xmleWxUmr3cdAyUba+skGrTq3lkck3iJ0hFK6QWlaaKA5STtxom+W7/hHa1XCNGa6oDlc+pdzWb+Byce4ZbK6WBnNJZkgPUUd3mXIrhbpYA/Di3gCLUvKv2HufZnLdHo0vYyksKywdJSmv4/snnbvCI3lYZZWnRBLUpZaLSbu0DZJdERQk7yvgquuErsqprlHFRb6lWmq5bIjrhP8kGcouqkSUIxXFv3DcUnUQrb0ldO/REU6zVvsytxrEcmUk3+NFChqqSymJSjf4nNuSfliOL1P6pEHSLTeDN+agf6lJpxNc92drCOlvuapexyfiO6bo0dKXLl+wOu5Fv0Cml0LvV5QF3k3+ht6fCM6foQVNdBLgFpdip30KOiSrLNyG/QqZESeFg5u+50l6h3QXYKmKNeCylHgiaKIttKxYI3GjXFrACtUZyVGW2sZBJxXNEC3Kgto0pxXCCpWq2so6eWy3FnO1ZXOKwsgWNNYRnFuQVPpRd+QBJNcF87jng15oW9U7XAEqe3nodFfVgjO48G3STpK0AnV5Zlj2C23KqRU3VNEDeYgiuUa5U8Bi5eZ0UNx8tdTaaVepJyar2NFyvoAqqNErjPAW5t8lineZdAMotSecWZxcuHgkYyS56ljHHPUDKHKt2B3wNJW2n1NLapAC2s8su5tcF8vcKdxeAM492aEdr9PUk8rCZVu9cASSb7K+5EnxJorboLtpO19hSUY8MmyHfqRXeQLl2A3GKdoScaeDm15fyC3Gquyjruglyvk3iQaVpvscqX8YlhF0ILvd4Tr1ZG3JLJdrUc8GpvgCU3/APs1CUHuy1T9TRgn1AsOUmaTVunQlDzLKs2xW25JEBi/LVCxKL8tP1LUUn50wuUVwwiQ5ds6dMnLdjcotoqUtR8V8hXZVWTRay7QY6TSzV9zKMVy0EKU1hVz1G36HJ8pJ9Oobd5WAOySfUjikDbb6lcK7gJJMrin2Oe19BKLILtVFUe7DJPjIVvuqoDtS6M231B5kZb3wmEJxB4foZ7l1CtzfIUtiLs7hq+pq9QK4epNiCnXLLuvqUJRikzbVRy3KPXJnJ0lYHRxvgMVSC9R9CXJrIDpJnSk+MHFY5FdANchVbuSRb6hlSlSAacXJiSjtdnJUsi4ArpRQ1TTZylTjXY0XToDo63WbcmsAttvBlajQHRSvoa7v3OcdzIrdgdZq6QIqpD6L2JWQNLEl7ETdvsTVXmjYo1XHQCNNp5LtxVm6EbqsgV7Vbtkk08oLz05MkrzgDKjUllL9jSi1lhkox9QOe6i6krykyvbi0OKTi6XAVyi3KqjbM4yT4Ss6JbXhieUEck507qwLTk3d2dkqeQX5qzkUTZTuyOFdh5auidOSjQS+C4Trk54Tu8FUl3IptWuSLasNAu42kzW2+AOsVDdmzNpUjm02uSVJ8sDpVz9AycVLLRVFP8AJuqNGEEuLaCJcVwnL2N55Lyxr3Z0i1HiKFv9AOcISVqTwdIQXVv5FuTdIm9K8r2AtJRdosUr4XAJasWkr5LBunUQhqrboi4ySMntbdIDt/zx6IBcM0k+QrUTfB0Uk0RQyVSLcSJxTpAX5NuoWGuQSS6BCu+xVJegNpmkgK5I2+KXIHV8kaXcKa1I9AuaIovuTav7FFTRPKnwOGmurYZQzhgRtJ2kTcutGlCKVtkqLCqpLPBHNLii1DoiNLogDKdtf8F3PsakhWtoBV3eSxvLNuVdCwaeWAbklSSKpS6pCvF0JLARze6nSXJNNSy2ds077mrGBQKaMk5ReTol5sm8qi8gc1hPOSQWHzyWNLcmyRkkmgHqryWn0Nbaa60SU24ccYJ4v+0BTV0+tEV5DLVkqpA8SbeBFeiqRJL9HJy1OAve+WIjphrngqq2rOSjJp5zY4xStt2wpJwX8ib4p5LSVVFE1HSxQQZSjeEdIM5qnG28C02t2OwGnuxSsUd1eagqddStvvgC06ywOHdibvryFyd0kANtPBdt9SvdXBKaCrUVG+vsGKUk1kuXHkKbirVZ9SjptSXBLVh3Pr9Et9iBtprk0U+G8HOpPrRUu7ZR0pXyRyiuoVCPUrUFzTIM9SPRWXdJ+nsaNcqIt9SwuF2AyjfdsUU9uYpBuT4FTdNhBlFtpXg6bbhzkjqPLNOorL+gLFRUKfIsVSTOK1JLmKXY0dVt8giyTXEbKvEfEUvdllh8jWSDntl1oSi+iRX6GTdAROXYL33k6KwSUgJ5u4XGTH0yyXXDKMoNF2M0ZdSq2wA4Svkyg7y0KTS6B3W+wCprqTbLuFTYk28gTZZHGhW65IqaA0YrsaXPJnKgSbArjHkygmDc2WCdWFPalkcUrObuuSqTWMhHRyVcBUuiSA3ZlYHRW17CS9Tmm0NvCAMr3PsSK3J2jSbugO91IBxgrfBtvlfAad0hQT2sCf8A0/kW1O85oMV5K7MSXUAuNxSsGxrKkdc26RUnWUAWkuW7I43Ll9ytScrxyWUM2gCoruzNLu6HjjAZJN1dgF02Haqtrg6NKMrC67AZKkq4JD/uLAlx1Kmty7gFpKTwVusCX5N9wzlS4ANdKyR7ru0NXiiNyrpYEabXJNtJWy5rl+5FDNhWpXllik3VY6YLSG1VBHOSV1QUnf8A8HSyXnkKL0+rZnBd2VvFFSdARQihuEKsLTtGaw7CFCUI9CPUW+0sGSWCpJNgXe+iA5zeEvo6Kks82KOW3QHGm0ty6jdulkcYt8rqWpblgFFpOObMtOkKW7i1RKzmb+AlFrN5KrvLFvVZZN15IJfoxNPszOT6F3MCK74I22+C730A9z5YGlfYGToouuWbakVQto0W79DdS7lwAZ7uwFufY6yk2RUAPMmJNpUNJdi0mBybbKrSGzbWANrl1YnprCHtZtvqCuUvKqSRkm1ydJQbLGFIg5uL5ZFGT5Z2axQFzRRz255ZaeRVTL7ABXfAkn15Ko5FQAcW3gyjnI7yWKtgcZKkOCdMLyxrCA5pYrkbVRdEjabLdqwApU8iepGuSOKfBttJANPBHKnVETfwaUuHYAd3iJdNTepxWDO79TosSA5OMm8tDjHoXa9xJpqqAiiZljG8Mu2+QCnTSuyyz0E4pT9hVFsg5tUg3aOj28EqKWCjn05KmWlZLSAxVK8BtYZlJAbHY1bspGc10Ip1wBXF3yJJvDDJuWSJOssB7cq2SSVNJ5JtXViUYteqAsdiS6iUoPpk0VHHBVGKqgjU+ywOKdEeeBukgiZV5JTfU0mk1llbW1NYAMqpdw7c2hylSvAYzw8Nv2CtSeGkVKCxaNULGtq4IC66Jk23yh4MEc3GuppUlkbpcmpMK5xfWyZb4wdaQXFMDnJewEndnbaiUgotYolM60g0io5ttP0KpPtRZVYXwFNO+hbfVEXohZb4CK3QVJ3wapN5ZkmuW2QZz9C78EavJQI5Wc3JqQ5Y6Bxd0VR3Nstuy1kUfYDQbNkUV2RaIjnTuxRTNuVpGciibc/JmsKi7sqyNhURWl0NuroDxL/jwBWqeWUEtTP4leouz4AS4JJYLuW1NKyJtutuAE6xXYzbxh/BpSliok/1OlAJN3bRG28UZxlxuRFF9ZAByaYoyblhMyg917rKoZeWAZN5oik7tUVxvqRJX5QJKfW0GU8fkOaXREaW3K69gClL1FKNrJlJJZv0Jv7J0FRRSWSOkbdbN1KJfYlstJPJbiq5AtsyT9h2mkZu8URB2NrkcdPuXf0oUWwM47Y3RoW0K21QVGV4ZEdFF5VidKOQQjjzSRZPT21ubCN5XnkTdrCItTTS6/RXqxeVb9KAkraxyZWopPsRTb/g0vUzbrNID//Z");
@@ -59,6 +60,18 @@ h1.title{
   text-align:center;
 }
 
+.lang-btn{
+  position:fixed; top:10px; right:10px; z-index:15;
+  font-family: inherit; font-weight:700; font-size:0.75rem;
+  padding:7px 12px; border-radius:6px;
+  border: 1px solid var(--gold-dark);
+  background: linear-gradient(145deg,#4a3218,#2b1c10);
+  color: var(--gold);
+  cursor:pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+}
+.lang-btn:active{ transform: translateY(1px); }
+
 /* ---------- generic wood card ---------- */
 .wood-card{
   position:relative;
@@ -72,12 +85,27 @@ h1.title{
     inset 0 0 40px rgba(0,0,0,0.35),
     0 10px 30px rgba(0,0,0,0.6);
   border: 3px solid #5a3b1e;
+  color: var(--ink);
 }
+.wood-card h2{ color: var(--ink); }
+.wood-card p{ font-size:0.9rem; line-height:1.5; }
+
+/* ================= START / HELP SCREENS ================= */
+#startScreen, #helpScreen{ width: min(560px, 94vw); margin-bottom: 20px; }
+#helpScreen{ display:none; }
+.fpeg-demo{
+  display:inline-block; width:16px; height:16px; border-radius:50%;
+  vertical-align:middle; margin-right:6px;
+  box-shadow: inset 0 0 0 1.5px rgba(0,0,0,0.4);
+}
+.fpeg-demo.black{ background: radial-gradient(circle at 35% 30%, #444, #050505 70%); }
+.fpeg-demo.white{ background: radial-gradient(circle at 35% 30%, #fff, #cfc9b8 70%); }
 
 /* ================= SETUP SCREEN ================= */
 #setupScreen{
   width: min(560px, 94vw);
   margin-bottom: 20px;
+  display:none;
 }
 .field{
   display:flex;
@@ -128,28 +156,12 @@ h1.title{
   font-size:1.05rem;
   color:#fff;
 }
-.switch{
-  position:relative;
-  width:46px; height:26px;
+input.chk{
+  width:22px; height:22px;
+  accent-color: var(--gold);
+  cursor:pointer;
   flex: 0 0 auto;
 }
-.switch input{ display:none; }
-.switch .track{
-  position:absolute; inset:0;
-  background:#3a2712;
-  border:1px solid var(--gold-dark);
-  border-radius:14px;
-  transition: background .2s;
-}
-.switch .thumb{
-  position:absolute; top:2px; left:2px;
-  width:20px;height:20px;border-radius:50%;
-  background: radial-gradient(circle at 35% 30%, #fff, #d8b463 60%, #8a6a2f);
-  transition: left .2s;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.6);
-}
-.switch input:checked + .track{ background: #4d7a4f; }
-.switch input:checked + .track .thumb{ left:22px; }
 
 .seed-row{
   display:flex;
@@ -471,8 +483,8 @@ h1.title{
   border:1px solid #fff2;
 }
 
-/* ================= END OVERLAY ================= */
-#endScreen{
+/* ================= MODAL / END OVERLAY ================= */
+#endScreen, #confirmModal{
   display:none;
   position:fixed; inset:0;
   z-index: 20;
@@ -480,7 +492,7 @@ h1.title{
   align-items:center; justify-content:center;
   padding: 16px;
 }
-.end-card{
+.end-card, .confirm-card{
   width:min(420px,92vw);
   text-align:center;
 }
@@ -504,6 +516,14 @@ h1.title{
 }
 .toast.show{ opacity:1; }
 
+.cross-link{
+  position:fixed; right:10px; bottom:8px;
+  font-size:0.68rem; color: rgba(243,230,200,0.55);
+  text-decoration:none; border-bottom: 1px dotted rgba(243,230,200,0.4);
+  z-index:5;
+}
+.cross-link:hover{ color: rgba(243,230,200,0.9); }
+
 @media (max-width:420px){
   .feedback{ width: calc(4 * 8px + 3 * 3px); }
   .fpeg{ width:8px; height:8px; }
@@ -512,13 +532,67 @@ h1.title{
 </head>
 <body>
 
+<button type="button" id="langToggle" class="lang-btn">EN</button>
 <h1 class="title engraved">SUPERHIRN</h1>
+
+<!-- ===================== START ===================== -->
+<div id="startScreen" class="wood-card">
+  <div class="board-frame">
+    <div class="board-inner">
+      <div class="secret-row">
+        <div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div>
+      </div>
+      <div class="rows-scroll" style="max-height:none;">
+        <div class="row">
+          <div class="row-num">1</div>
+          <div class="slots">
+            <div class="hole filled"><div class="peg c0"></div></div>
+            <div class="hole filled"><div class="peg c1"></div></div>
+            <div class="hole filled"><div class="peg c3"></div></div>
+            <div class="hole filled"><div class="peg c4"></div></div>
+          </div>
+          <div class="feedback"><div class="fpeg black"></div><div class="fpeg white"></div><div class="fpeg"></div><div class="fpeg"></div></div>
+        </div>
+        <div class="row">
+          <div class="row-num">2</div>
+          <div class="slots">
+            <div class="hole filled"><div class="peg c5"></div></div>
+            <div class="hole filled"><div class="peg c2"></div></div>
+            <div class="hole"></div>
+            <div class="hole"></div>
+          </div>
+          <div class="feedback"><div class="fpeg"></div><div class="fpeg"></div><div class="fpeg"></div><div class="fpeg"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="btn-row">
+    <button type="button" class="btn" id="goPlayBtn" data-i18n="startPlay">Spielen</button>
+    <button type="button" class="btn secondary" id="goOptionsBtn" data-i18n="startOptions">Optionen</button>
+    <button type="button" class="btn secondary" id="goHelpBtn" data-i18n="startHelp">Spielanleitung</button>
+  </div>
+</div>
+
+<!-- ===================== HELP ===================== -->
+<div id="helpScreen" class="wood-card">
+  <h2 data-i18n="helpTitle">So wird gespielt</h2>
+  <p data-i18n="helpP1">Der Computer versteckt einen geheimen Farbcode aus mehreren Steckern. Du versuchst, ihn in möglichst wenigen Runden zu erraten.</p>
+  <p data-i18n="helpP2">Nach jeder Reihe zeigen dir kleine Rückmeldungs-Punkte, wie gut dein Tipp war:</p>
+  <p><span class="fpeg-demo black"></span><span data-i18n="helpBlack">Schwarzer Punkt: richtige Farbe an der richtigen Position.</span></p>
+  <p><span class="fpeg-demo white"></span><span data-i18n="helpWhite">Weißer Punkt: richtige Farbe, aber falsche Position.</span></p>
+  <p data-i18n="helpJoker">Ein Joker verrät zufällig eine Position des geheimen Codes.</p>
+  <p data-i18n="helpTimer">Bei aktivem Timer musst du deine Reihe rechtzeitig abschließen, sonst wird sie automatisch abgeschickt.</p>
+  <p data-i18n="helpSeed">Nutze denselben Seed wie eine andere Person, um gemeinsam an derselben geheimen Kombination zu tüfteln.</p>
+  <div class="btn-row">
+    <button type="button" class="btn secondary" id="helpBackBtn" data-i18n="btnBack">← Zurück</button>
+  </div>
+</div>
 
 <!-- ===================== SETUP ===================== -->
 <div id="setupScreen" class="wood-card">
   <div class="field">
-    <label>Anzahl der Stecker
-      <span class="hint">Wie viele Farbstecker bilden den Code (2–8)</span>
+    <label data-i18n="fieldPegsLabel">Anzahl der Stecker
+      <span class="hint" data-i18n="fieldPegsHint">Wie viele Farbstecker bilden den Code (2–8)</span>
     </label>
     <div class="stepper">
       <button type="button" data-step="pegs" data-dir="-1">−</button>
@@ -528,8 +602,8 @@ h1.title{
   </div>
 
   <div class="field">
-    <label>Anzahl Farben
-      <span class="hint">Wie viele verschiedene Farben zur Auswahl stehen (4–8)</span>
+    <label data-i18n="fieldColorsLabel">Anzahl Farben
+      <span class="hint" data-i18n="fieldColorsHint">Wie viele verschiedene Farben zur Auswahl stehen (4–8)</span>
     </label>
     <div class="stepper">
       <button type="button" data-step="colors" data-dir="-1">−</button>
@@ -539,18 +613,15 @@ h1.title{
   </div>
 
   <div class="field">
-    <label>Farbwiederholung erlaubt
-      <span class="hint">Darf eine Farbe im Code mehrfach vorkommen?</span>
+    <label data-i18n="fieldDupLabel">Farbwiederholung erlaubt
+      <span class="hint" data-i18n="fieldDupHint">Darf eine Farbe im Code mehrfach vorkommen?</span>
     </label>
-    <label class="switch">
-      <input type="checkbox" id="dupToggle" checked>
-      <span class="track"><span class="thumb"></span></span>
-    </label>
+    <input type="checkbox" class="chk" id="dupToggle" checked>
   </div>
 
   <div class="field">
-    <label>Runden bis Game Over
-      <span class="hint">Nach wie vielen Versuchen ist Schluss</span>
+    <label data-i18n="fieldRoundsLabel">Runden bis Game Over
+      <span class="hint" data-i18n="fieldRoundsHint">Nach wie vielen Versuchen ist Schluss</span>
     </label>
     <div class="stepper">
       <button type="button" data-step="rounds" data-dir="-1">−</button>
@@ -559,24 +630,18 @@ h1.title{
     </div>
   </div>
   <div class="field">
-    <label>Unendlich viele Runden</label>
-    <label class="switch">
-      <input type="checkbox" id="infiniteToggle">
-      <span class="track"><span class="thumb"></span></span>
-    </label>
+    <label data-i18n="fieldInfiniteLabel">Unendlich viele Runden</label>
+    <input type="checkbox" class="chk" id="infiniteToggle">
   </div>
 
   <div class="field">
-    <label>Timer pro Runde
-      <span class="hint">Zeitdruck ein-/ausschalten</span>
+    <label data-i18n="fieldTimerLabel">Timer pro Runde
+      <span class="hint" data-i18n="fieldTimerHint">Zeitdruck ein-/ausschalten</span>
     </label>
-    <label class="switch">
-      <input type="checkbox" id="timerToggle">
-      <span class="track"><span class="thumb"></span></span>
-    </label>
+    <input type="checkbox" class="chk" id="timerToggle">
   </div>
   <div class="field" id="timerSecField" style="display:none;">
-    <label>Sekunden pro Runde</label>
+    <label data-i18n="fieldTimerSecLabel">Sekunden pro Runde</label>
     <div class="stepper">
       <button type="button" data-step="timerSec" data-dir="-1">−</button>
       <output id="timerSecOut">60</output>
@@ -585,8 +650,8 @@ h1.title{
   </div>
 
   <div class="field">
-    <label>Joker
-      <span class="hint">Anzahl Hinweise, die je einen Stecker verraten</span>
+    <label data-i18n="fieldJokerLabel">Joker
+      <span class="hint" data-i18n="fieldJokerHint">Anzahl Hinweise, die je einen Stecker verraten</span>
     </label>
     <div class="stepper">
       <button type="button" data-step="jokers" data-dir="-1">−</button>
@@ -596,27 +661,28 @@ h1.title{
   </div>
 
   <div class="field" style="flex-direction:column; align-items:stretch;">
-    <label style="margin-bottom:6px;">Seed
-      <span class="hint">Gleicher Seed = gleiches Muster &amp; gleiche Optionen (Mehrspieler)</span>
+    <label style="margin-bottom:6px;" data-i18n="fieldSeedLabel">Seed
+      <span class="hint" data-i18n="fieldSeedHint">Gleicher Seed = gleiches Muster &amp; gleiche Optionen (Mehrspieler)</span>
     </label>
     <div class="seed-row">
-      <input type="text" id="seedInput" placeholder="leer = zufällig" maxlength="12">
-      <button type="button" class="btn secondary" id="applySeedBtn">Übernehmen</button>
-      <button type="button" class="btn secondary" id="randomSeedBtn">Würfeln</button>
+      <input type="text" id="seedInput" data-i18n-ph="seedPlaceholder" placeholder="leer = zufällig" maxlength="12">
+      <button type="button" class="btn secondary" id="applySeedBtn" data-i18n="btnApply">Übernehmen</button>
+      <button type="button" class="btn secondary" id="randomSeedBtn" data-i18n="btnRandom">Würfeln</button>
     </div>
-    <div class="warn" id="seedWarn">Ungültiger Seed.</div>
+    <div class="warn" id="seedWarn" data-i18n="seedWarnInvalid">Ungültiger Seed.</div>
   </div>
 
   <div class="btn-row">
-    <button type="button" class="btn" id="startBtn">Spiel starten</button>
+    <button type="button" class="btn secondary" id="setupBackBtn" data-i18n="btnBack">← Zurück</button>
+    <button type="button" class="btn" id="startBtn" data-i18n="btnStart">Spiel starten</button>
   </div>
 </div>
 
 <!-- ===================== GAME ===================== -->
 <div id="gameScreen">
   <div class="topbar">
-    <div class="seed-badge engraved" id="seedBadge" title="Seed kopieren">Seed: <span id="seedBadgeText">-</span></div>
-    <div class="round-badge engraved" id="roundBadge">Runde 1</div>
+    <div class="seed-badge" id="seedBadge" title="Seed kopieren">Seed: <span id="seedBadgeText">-</span></div>
+    <div class="round-badge" id="roundBadge">Runde 1</div>
   </div>
   <div class="timer-wrap" id="timerWrap"><div class="timer-bar" id="timerBar"></div></div>
 
@@ -634,9 +700,9 @@ h1.title{
       <button type="button" class="btn secondary joker-btn" id="jokerBtn">
         Joker <span class="joker-count" id="jokerCount">0</span>
       </button>
-      <button type="button" class="btn danger" id="clearBtn">Reihe leeren</button>
-      <button type="button" class="btn" id="checkBtn">Prüfen</button>
-      <button type="button" class="btn secondary" id="giveUpBtn">Aufgeben</button>
+      <button type="button" class="btn danger" id="clearBtn" data-i18n="btnClear">Reihe leeren</button>
+      <button type="button" class="btn" id="checkBtn" data-i18n="btnCheck">Prüfen</button>
+      <button type="button" class="btn secondary" id="giveUpBtn" data-i18n="btnGiveUp">Aufgeben</button>
     </div>
   </div>
 </div>
@@ -648,17 +714,142 @@ h1.title{
     <p id="endText"></p>
     <div class="end-secret" id="endSecret"></div>
     <div class="btn-row">
-      <button type="button" class="btn" id="againSeedBtn">Nochmal (gleicher Code)</button>
-      <button type="button" class="btn secondary" id="newGameBtn">Neues Spiel</button>
+      <button type="button" class="btn" id="againSeedBtn" data-i18n="btnAgainSeed">Nochmal (gleicher Code)</button>
+      <button type="button" class="btn secondary" id="newGameBtn" data-i18n="btnNewGame">Neues Spiel</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== CONFIRM MODAL ===================== -->
+<div id="confirmModal">
+  <div class="wood-card confirm-card">
+    <p id="confirmText"></p>
+    <div class="btn-row">
+      <button type="button" class="btn danger" id="confirmYesBtn"></button>
+      <button type="button" class="btn secondary" id="confirmNoBtn"></button>
     </div>
   </div>
 </div>
 
 <div class="toast" id="toast"></div>
 
+<a class="cross-link" href="../publish-or-perish/" data-i18n="crossLink">Publish or Perish Edition →</a>
+
 <script>
 (function(){
 "use strict";
+
+/* ============== i18n ============== */
+const STR = {
+  de: {
+    startPlay:"Spielen", startOptions:"Optionen", startHelp:"Spielanleitung",
+    helpTitle:"So wird gespielt",
+    helpP1:"Der Computer versteckt einen geheimen Farbcode aus mehreren Steckern. Du versuchst, ihn in möglichst wenigen Runden zu erraten.",
+    helpP2:"Nach jeder Reihe zeigen dir kleine Rückmeldungs-Punkte, wie gut dein Tipp war:",
+    helpBlack:"Schwarzer Punkt: richtige Farbe an der richtigen Position.",
+    helpWhite:"Weißer Punkt: richtige Farbe, aber falsche Position.",
+    helpJoker:"Ein Joker verrät zufällig eine Position des geheimen Codes.",
+    helpTimer:"Bei aktivem Timer musst du deine Reihe rechtzeitig abschließen, sonst wird sie automatisch abgeschickt.",
+    helpSeed:"Nutze denselben Seed wie eine andere Person, um gemeinsam an derselben geheimen Kombination zu tüfteln.",
+    fieldPegsLabel:"Anzahl der Stecker", fieldPegsHint:"Wie viele Farbstecker bilden den Code (2–8)",
+    fieldColorsLabel:"Anzahl Farben", fieldColorsHint:"Wie viele verschiedene Farben zur Auswahl stehen (4–8)",
+    fieldDupLabel:"Farbwiederholung erlaubt", fieldDupHint:"Darf eine Farbe im Code mehrfach vorkommen?",
+    fieldRoundsLabel:"Runden bis Game Over", fieldRoundsHint:"Nach wie vielen Versuchen ist Schluss",
+    fieldInfiniteLabel:"Unendlich viele Runden",
+    fieldTimerLabel:"Timer pro Runde", fieldTimerHint:"Zeitdruck ein-/ausschalten",
+    fieldTimerSecLabel:"Sekunden pro Runde",
+    fieldJokerLabel:"Joker", fieldJokerHint:"Anzahl Hinweise, die je einen Stecker verraten",
+    fieldSeedLabel:"Seed", fieldSeedHint:"Gleicher Seed = gleiches Muster & gleiche Optionen (Mehrspieler)",
+    seedPlaceholder:"leer = zufällig", btnApply:"Übernehmen", btnRandom:"Würfeln",
+    seedWarnInvalid:"Ungültiger Seed.", btnStart:"Spiel starten", btnBack:"← Zurück",
+    btnClear:"Reihe leeren", btnCheck:"Prüfen", btnGiveUp:"Aufgeben",
+    btnAgainSeed:"Nochmal (gleicher Code)", btnNewGame:"Neues Spiel",
+    crossLink:"Publish or Perish Edition →",
+    roundLabel:"Runde {cur} / {total}",
+    toastFillAll:"Bitte alle Stecker setzen",
+    toastSeedApplied:"Seed übernommen – Optionen aktualisiert",
+    toastSeedCopied:"Seed kopiert: {s}",
+    toastSeedShown:"Seed: {s}",
+    toastTimeUp:"Zeit abgelaufen!",
+    toastAllRevealed:"Schon alles verraten!",
+    jokerRevealToast:"Position {n} ist {color}",
+    confirmGiveUpText:"Wirklich aufgeben und den Code aufdecken?",
+    confirmYes:"Ja, aufgeben", confirmCancel:"Abbrechen",
+    endWinTitle:"Gelöst! 🎉", endWinText:"Du hast den Code in Runde {r} geknackt. Zeit: {t}",
+    endLoseTitle:"Game Over", endLoseText:"Der Code war (Zeit: {t}):",
+    colors:["Rot","Blau","Gelb","Grün","Orange","Lila","Weiß","Schwarz"]
+  },
+  en: {
+    startPlay:"Play", startOptions:"Options", startHelp:"How to Play",
+    helpTitle:"How to play",
+    helpP1:"The computer hides a secret color code made of several pegs. Try to guess it in as few rounds as possible.",
+    helpP2:"After each row, small feedback dots show how good your guess was:",
+    helpBlack:"Black dot: right color in the right position.",
+    helpWhite:"White dot: right color, but wrong position.",
+    helpJoker:"A joker randomly reveals one position of the secret code.",
+    helpTimer:"With the timer on, you must finish your row in time, or it is submitted automatically.",
+    helpSeed:"Use the same seed as someone else to play the exact same hidden combination together.",
+    fieldPegsLabel:"Number of pegs", fieldPegsHint:"How many colored pegs make up the code (2–8)",
+    fieldColorsLabel:"Number of colors", fieldColorsHint:"How many different colors are available (4–8)",
+    fieldDupLabel:"Allow repeated colors", fieldDupHint:"May a color appear more than once in the code?",
+    fieldRoundsLabel:"Rounds until Game Over", fieldRoundsHint:"How many attempts before it's over",
+    fieldInfiniteLabel:"Infinite rounds",
+    fieldTimerLabel:"Timer per round", fieldTimerHint:"Turn time pressure on/off",
+    fieldTimerSecLabel:"Seconds per round",
+    fieldJokerLabel:"Joker", fieldJokerHint:"Number of hints, each revealing one peg",
+    fieldSeedLabel:"Seed", fieldSeedHint:"Same seed = identical pattern & options (multiplayer)",
+    seedPlaceholder:"empty = random", btnApply:"Apply", btnRandom:"Randomize",
+    seedWarnInvalid:"Invalid seed.", btnStart:"Start Game", btnBack:"← Back",
+    btnClear:"Clear row", btnCheck:"Check", btnGiveUp:"Give up",
+    btnAgainSeed:"Play again (same code)", btnNewGame:"New Game",
+    crossLink:"Publish or Perish Edition →",
+    roundLabel:"Round {cur} / {total}",
+    toastFillAll:"Please fill all pegs",
+    toastSeedApplied:"Seed applied – options updated",
+    toastSeedCopied:"Seed copied: {s}",
+    toastSeedShown:"Seed: {s}",
+    toastTimeUp:"Time's up!",
+    toastAllRevealed:"Everything is already revealed!",
+    jokerRevealToast:"Position {n} is {color}",
+    confirmGiveUpText:"Really give up and reveal the code?",
+    confirmYes:"Yes, give up", confirmCancel:"Cancel",
+    endWinTitle:"Solved! 🎉", endWinText:"You cracked the code in round {r}. Time: {t}",
+    endLoseTitle:"Game Over", endLoseText:"The code was (time: {t}):",
+    colors:["Red","Blue","Yellow","Green","Orange","Purple","White","Black"]
+  }
+};
+let LANG = localStorage.getItem("sh_lang") || "en";
+function t(key, params){
+  let s = (STR[LANG] && STR[LANG][key]!==undefined) ? STR[LANG][key] : key;
+  if (params) Object.keys(params).forEach(k=>{ s = s.replace("{"+k+"}", params[k]); });
+  return s;
+}
+function applyLang(){
+  document.documentElement.lang = LANG;
+  document.querySelectorAll("[data-i18n]").forEach(el=>{
+    const key = el.dataset.i18n;
+    if (el.children.length){
+      // preserve nested elements (e.g. hint spans), only replace the first text node
+      for (const node of el.childNodes){
+        if (node.nodeType===3 && node.textContent.trim()){ node.textContent = t(key) + " "; break; }
+      }
+    } else {
+      el.textContent = t(key);
+    }
+  });
+  document.querySelectorAll("[data-i18n-ph]").forEach(el=>{ el.placeholder = t(el.dataset.i18nPh); });
+  $("langToggle").textContent = LANG==="de" ? "EN" : "DE";
+  localStorage.setItem("sh_lang", LANG);
+  refreshDynamicTexts();
+}
+function refreshDynamicTexts(){
+  if ($("gameScreen").style.display!=="none"){ renderRoundBadge(); }
+  if ($("confirmModal").style.display==="flex"){
+    $("confirmText").textContent = t("confirmGiveUpText");
+    $("confirmYesBtn").textContent = t("confirmYes");
+    $("confirmNoBtn").textContent = t("confirmCancel");
+  }
+}
 
 /* ============== deterministic RNG ============== */
 function xmur3(str){
@@ -767,10 +958,9 @@ const state = {
   guesses:[], activeRow:0,
   jokersLeft:0, revealed:{},
   timerHandle:null, timerRemaining:0,
-  finished:false
+  finished:false,
+  startTime:0, endTime:0
 };
-
-const COLOR_NAMES = ["Rot","Blau","Gelb","Grün","Orange","Lila","Weiß","Schwarz"];
 
 /* ============== DOM refs ============== */
 const $ = id => document.getElementById(id);
@@ -781,6 +971,23 @@ const timerSecField=$("timerSecField");
 const seedInput=$("seedInput"), seedWarn=$("seedWarn");
 
 function clamp(v,min,max){ return Math.max(min,Math.min(max,v)); }
+
+/* ============== screen navigation ============== */
+function showScreen(name){
+  ["startScreen","helpScreen","setupScreen","gameScreen"].forEach(id=>{
+    $(id).style.display = "none";
+  });
+  if (name==="game") $("gameScreen").style.display = "flex";
+  else $(name+"Screen").style.display = "block";
+}
+$("goPlayBtn").addEventListener("click", ()=>{
+  state.salt = Math.floor(Math.random()*SALT_MAX);
+  beginGame();
+});
+$("goOptionsBtn").addEventListener("click", ()=>{ showScreen("setup"); });
+$("goHelpBtn").addEventListener("click", ()=>{ showScreen("help"); });
+$("helpBackBtn").addEventListener("click", ()=>{ showScreen("start"); });
+$("setupBackBtn").addEventListener("click", ()=>{ showScreen("start"); });
 
 function refreshSetupUI(){
   pegsOut.textContent = state.pegs;
@@ -853,7 +1060,7 @@ $("randomSeedBtn").addEventListener("click", ()=>{
 
 $("applySeedBtn").addEventListener("click", ()=>{
   const v = seedFromString(seedInput.value);
-  if (v===null){ seedWarn.textContent="Ungültiger Seed."; seedWarn.style.display="block"; return; }
+  if (v===null){ seedWarn.style.display="block"; return; }
   try{
     const cfg = decodeSeed(v);
     state.pegs = cfg.pegs; state.colors = cfg.colors; state.roundsIdx = cfg.roundsIdx;
@@ -862,9 +1069,9 @@ $("applySeedBtn").addEventListener("click", ()=>{
     seedWarn.style.display = "none";
     refreshSetupUI();
     showSeedPreview();
-    toast("Seed übernommen – Optionen aktualisiert");
+    toast(t("toastSeedApplied"));
   } catch(e){
-    seedWarn.textContent="Ungültiger Seed."; seedWarn.style.display="block";
+    seedWarn.style.display="block";
   }
 });
 
@@ -875,16 +1082,33 @@ refreshSetupUI();
 /* ============== toast ============== */
 let toastTimer=null;
 function toast(msg){
-  const t = $("toast");
-  t.textContent = msg;
-  t.classList.add("show");
+  const el = $("toast");
+  el.textContent = msg;
+  el.classList.add("show");
   clearTimeout(toastTimer);
-  toastTimer = setTimeout(()=>t.classList.remove("show"), 2200);
+  toastTimer = setTimeout(()=>el.classList.remove("show"), 2200);
+}
+
+/* ============== confirm modal ============== */
+function showConfirm(text, yesLabel, noLabel, onYes){
+  $("confirmText").textContent = text;
+  $("confirmYesBtn").textContent = yesLabel;
+  $("confirmNoBtn").textContent = noLabel;
+  const modal = $("confirmModal");
+  modal.style.display = "flex";
+  function cleanup(){
+    modal.style.display = "none";
+    $("confirmYesBtn").removeEventListener("click", onYesClick);
+    $("confirmNoBtn").removeEventListener("click", onNoClick);
+  }
+  function onYesClick(){ cleanup(); onYes(); }
+  function onNoClick(){ cleanup(); }
+  $("confirmYesBtn").addEventListener("click", onYesClick);
+  $("confirmNoBtn").addEventListener("click", onNoClick);
 }
 
 /* ============== start game ============== */
 $("startBtn").addEventListener("click", ()=>{
-  // lock in seed from input if user typed/left one, else use preview value already synced to state
   const v = seedFromString(seedInput.value);
   if (v!==null){
     const cfg = decodeSeed(v);
@@ -905,10 +1129,10 @@ function beginGame(){
   state.revealed = {};
   state.finished = false;
   state.selectedColor = null;
+  state.startTime = Date.now();
+  state.endTime = 0;
 
-  $("setupScreen").style.display = "none";
-  $("endScreen").style.display = "none";
-  $("gameScreen").style.display = "flex";
+  showScreen("game");
   $("seedBadgeText").textContent = seedToString(state.seedValue);
   buildPalette();
   renderAll();
@@ -925,7 +1149,7 @@ function buildPalette(){
     const sw = document.createElement("div");
     sw.className = "swatch peg c"+c;
     sw.dataset.color = c;
-    sw.title = COLOR_NAMES[c];
+    sw.title = t("colors")[c];
     sw.addEventListener("click", ()=>selectColor(c));
     pal.appendChild(sw);
   }
@@ -935,7 +1159,6 @@ function selectColor(c){
   document.querySelectorAll(".swatch").forEach(s=>{
     s.classList.toggle("selected", parseInt(s.dataset.color,10)===c);
   });
-  // fill next empty slot in active row
   const guess = state.guesses[state.activeRow];
   const idx = guess.indexOf(null);
   if (idx !== -1){
@@ -960,7 +1183,7 @@ function renderHints(){
     const c = state.revealed[pos];
     const chip = document.createElement("div");
     chip.className = "hint-chip";
-    chip.textContent = "Pos " + (pos+1) + ": " + COLOR_NAMES[c];
+    chip.textContent = "Pos " + (pos+1) + ": " + t("colors")[c];
     strip.appendChild(chip);
   });
 }
@@ -1040,7 +1263,7 @@ function renderRows(){
 
 function renderRoundBadge(){
   const total = state.roundsIdx===0 ? "∞" : state.roundsIdx;
-  $("roundBadge").textContent = "Runde " + (state.activeRow+1) + " / " + total;
+  $("roundBadge").textContent = t("roundLabel",{cur: state.activeRow+1, total: total});
 }
 
 function renderJoker(){
@@ -1053,14 +1276,14 @@ $("jokerBtn").addEventListener("click", ()=>{
   if (state.jokersLeft<=0 || state.finished) return;
   const remainingPositions = [];
   for (let i=0;i<state.pegs;i++) if (state.revealed[i]===undefined) remainingPositions.push(i);
-  if (remainingPositions.length===0){ toast("Schon alles verraten!"); return; }
+  if (remainingPositions.length===0){ toast(t("toastAllRevealed")); return; }
   const pick = remainingPositions[Math.floor(Math.random()*remainingPositions.length)];
   state.revealed[pick] = state.secret[pick];
   state.jokersLeft--;
   renderHints();
   renderSecretRow();
   renderJoker();
-  toast("Position " + (pick+1) + " ist " + COLOR_NAMES[state.secret[pick]]);
+  toast(t("jokerRevealToast",{n: pick+1, color: t("colors")[state.secret[pick]]}));
 });
 
 /* ============== clear / check ============== */
@@ -1075,7 +1298,7 @@ $("checkBtn").addEventListener("click", ()=>{ submitGuess(); });
 function submitGuess(auto){
   if (state.finished) return;
   const guess = state.guesses[state.activeRow];
-  if (!auto && guess.some(v=>v===null)){ toast("Bitte alle Stecker setzen"); return; }
+  if (!auto && guess.some(v=>v===null)){ toast(t("toastFillAll")); return; }
   const result = evaluateGuess(guess, state.secret);
   guess._result = result;
   stopTimer();
@@ -1108,7 +1331,7 @@ function startTimerIfNeeded(){
     updateTimerBar();
     if (state.timerRemaining<=0){
       stopTimer();
-      toast("Zeit abgelaufen!");
+      toast(t("toastTimeUp"));
       submitGuess(true);
     }
   }, 1000);
@@ -1128,11 +1351,19 @@ function updateTimerBar(){
 /* ============== give up / finish ============== */
 $("giveUpBtn").addEventListener("click", ()=>{
   if (state.finished) return;
-  if (confirm("Wirklich aufgeben und den Code aufdecken?")) finishGame(false);
+  showConfirm(t("confirmGiveUpText"), t("confirmYes"), t("confirmCancel"), ()=>finishGame(false));
 });
+
+function formatDuration(ms){
+  const totalSec = Math.max(0, Math.round(ms/1000));
+  const m = Math.floor(totalSec/60);
+  const s = totalSec%60;
+  return m + ":" + (s<10?"0":"") + s;
+}
 
 function finishGame(won){
   state.finished = true;
+  state.endTime = Date.now();
   stopTimer();
   renderSecretRow();
   renderRows();
@@ -1153,12 +1384,13 @@ function finishGame(won){
     secretWrap.appendChild(hole);
   });
 
+  const elapsed = formatDuration(state.endTime - state.startTime);
   if (won){
-    title.textContent = "Gelöst! 🎉";
-    text.textContent = "Du hast den Code in Runde " + (state.activeRow+1) + " geknackt.";
+    title.textContent = t("endWinTitle");
+    text.textContent = t("endWinText",{r: state.activeRow+1, t: elapsed});
   } else {
-    title.textContent = "Game Over";
-    text.textContent = "Der Code war:";
+    title.textContent = t("endLoseTitle");
+    text.textContent = t("endLoseText",{t: elapsed});
   }
   overlay.style.display = "flex";
 }
@@ -1168,21 +1400,27 @@ $("againSeedBtn").addEventListener("click", ()=>{
 });
 $("newGameBtn").addEventListener("click", ()=>{
   $("endScreen").style.display="none";
-  $("gameScreen").style.display="none";
-  $("setupScreen").style.display="block";
-  refreshSetupUI();
-  showSeedPreview();
+  showScreen("start");
 });
 
 /* ============== seed badge copy ============== */
 $("seedBadge").addEventListener("click", ()=>{
   const text = $("seedBadgeText").textContent;
   if (navigator.clipboard && navigator.clipboard.writeText){
-    navigator.clipboard.writeText(text).then(()=>toast("Seed kopiert: "+text)).catch(()=>toast("Seed: "+text));
+    navigator.clipboard.writeText(text).then(()=>toast(t("toastSeedCopied",{s:text}))).catch(()=>toast(t("toastSeedShown",{s:text})));
   } else {
-    toast("Seed: "+text);
+    toast(t("toastSeedShown",{s:text}));
   }
 });
+
+/* ============== language toggle ============== */
+document.getElementById("langToggle").addEventListener("click", ()=>{
+  LANG = LANG==="de" ? "en" : "de";
+  applyLang();
+});
+
+showScreen("start");
+applyLang();
 
 })();
 </script>
