@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
-<title>PUBLISH OR PERISH</title>
+<title>Mastermind "Publisher Version"</title>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+CiAgPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTQiIGZpbGw9IiMzYTI3MTIiLz4KICA8Y2lyY2xlIGN4PSIzMiIgY3k9IjM0IiByPSIyMyIgZmlsbD0iIzA1MDUwNSIvPgogIDxjaXJjbGUgY3g9IjMyIiBjeT0iMzQiIHI9IjIzIiBmaWxsPSJ1cmwoI2cpIi8+CiAgPGRlZnM+CiAgICA8cmFkaWFsR3JhZGllbnQgaWQ9ImciIGN4PSIzNSUiIGN5PSIzMCUiIHI9Ijc1JSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiM3NzciLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIzNSUiIHN0b3AtY29sb3I9IiMyMjIiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMDAwIi8+CiAgICA8L3JhZGlhbEdyYWRpZW50PgogIDwvZGVmcz4KPC9zdmc+Cg==">
 <style>
 :root{
@@ -146,19 +146,6 @@ h1.researcher-name{
 .fetch-status.err{ color: var(--maroon); font-weight:700; }
 .fetch-status.pending{ color: var(--ink-soft); font-style: italic; }
 
-.search-toggle{
-  background:none; border:none; padding:0; margin-top:6px;
-  color: var(--maroon); font-family: inherit; font-size:0.78rem;
-  text-decoration: underline; cursor:pointer;
-}
-.search-box{ display:none; margin-top:10px; padding-top:10px; border-top: 1px dotted var(--paper-edge); }
-.search-row{ display:flex; gap:8px; flex-wrap:wrap; }
-.search-row input[type=text]{
-  flex: 1 1 180px; min-width:0;
-  padding:8px 10px; border-radius:3px;
-  border:1.5px solid var(--ink); background:#fff; color:var(--ink);
-  font-size:0.9rem; font-family: inherit;
-}
 .search-results{ margin-top:8px; }
 .search-result{
   display:flex; justify-content:space-between; align-items:center; gap:8px;
@@ -422,8 +409,7 @@ input.chk{ width:22px; height:22px; accent-color: var(--maroon); cursor:pointer;
 
 <button type="button" id="langToggle" class="lang-btn">DE</button>
 
-<div class="kicker" data-i18n="kicker">Publish or Perish &middot; The Guessing Game for Scholars</div>
-<h1 class="researcher-name" id="researcherName" data-i18n="appTitle">Publish or Perish</h1>
+<h1 class="researcher-name" id="researcherName">Mastermind "Publisher Version"</h1>
 <div class="orcid-line" id="orcidLine" style="display:none;"><span data-i18n="orcidPrefix">ORCID:</span> <a id="orcidLink" href="#" target="_blank" rel="noopener">-</a></div>
 <hr class="cv-divider">
 
@@ -471,7 +457,7 @@ input.chk{ width:22px; height:22px; accent-color: var(--maroon); cursor:pointer;
   <p><span class="demo-fpeg"></span><span data-i18n="helpWhite">Outlined dot: right publisher, wrong rank.</span></p>
   <p data-i18n="helpJoker">A joker randomly reveals the publisher for one rank.</p>
   <p data-i18n="helpTimer">With the timer on, you must finish your row in time, or it is submitted automatically.</p>
-  <p data-i18n="helpDifficulty">In Options you can choose whether to guess 2 or 3 of the researcher's top-cited works.</p>
+  <p data-i18n="helpDifficulty">In Options you can choose whether to guess 2, 3, or 4 of the researcher's top-cited works.</p>
   <div class="btn-row">
     <button type="button" class="btn" id="helpBackBtn" data-i18n="btnBack">← Back</button>
   </div>
@@ -480,30 +466,24 @@ input.chk{ width:22px; height:22px; accent-color: var(--maroon); cursor:pointer;
 <!-- ===================== SETUP ===================== -->
 <div id="setupScreen" class="paper-card">
   <div class="field-group">
-    <label data-i18n="orcidLabel">ORCID iD of the researcher</label>
-    <span class="hint" data-i18n="orcidHint">e.g. 0000-0001-6797-5476 — we automatically fetch the top-cited works (incl. publisher) via OpenAlex</span>
+    <label data-i18n="orcidLabel">Name or ORCID iD of the researcher</label>
+    <span class="hint" data-i18n="orcidHint">We automatically fetch the top-cited works (incl. publisher) via OpenAlex</span>
     <div class="orcid-row">
-      <input type="text" id="orcidInput" placeholder="0000-0000-0000-0000" maxlength="60">
-      <button type="button" class="btn" id="fetchBtn" data-i18n="btnFetch">Load Publications</button>
+      <input type="text" id="orcidInput" placeholder="" maxlength="120">
+      <button type="button" class="btn" id="fetchBtn" data-i18n="btnFetch">Search</button>
     </div>
     <div class="fetch-status" id="fetchStatus"></div>
-    <button type="button" class="search-toggle" id="searchToggleBtn" data-i18n="searchToggle">Don't know the ORCID? Search by name →</button>
-    <div class="search-box" id="searchBox">
-      <div class="search-row">
-        <input type="text" id="nameInput" data-i18n-ph="searchPlaceholder" placeholder="e.g. Brian Nosek">
-        <button type="button" class="btn" id="nameSearchBtn" data-i18n="btnSearch">Search</button>
-      </div>
-      <div class="search-results" id="searchResults"></div>
-    </div>
+    <div class="search-results" id="searchResults"></div>
   </div>
 
   <div class="field">
     <label data-i18n="fieldGuessCountLabel">Publishers to guess
-      <span class="hint" data-i18n="fieldGuessCountHint">Use the researcher's top 2 or top 3 most-cited works</span>
+      <span class="hint" data-i18n="fieldGuessCountHint">Use the researcher's top 2, 3, or 4 most-cited works</span>
     </label>
     <div class="segmented" id="guessCountSeg">
       <button type="button" data-count="2">2</button>
       <button type="button" data-count="3">3</button>
+      <button type="button" data-count="4">4</button>
     </div>
   </div>
 
@@ -613,8 +593,7 @@ input.chk{ width:22px; height:22px; accent-color: var(--maroon); cursor:pointer;
 /* ============== i18n ============== */
 const STR = {
   en: {
-    kicker:"Publish or Perish · The Guessing Game for Scholars",
-    appTitle:"Publish or Perish",
+    appTitle:'Mastermind "Publisher Version"',
     orcidPrefix:"ORCID:",
     startPlay:"Play", startOptions:"Options", startHelp:"How to Play",
     helpTitle:"How this works",
@@ -624,19 +603,15 @@ const STR = {
     helpWhite:"Outlined dot: right publisher, wrong rank.",
     helpJoker:"A joker randomly reveals the publisher for one rank.",
     helpTimer:"With the timer on, you must finish your row in time, or it is submitted automatically.",
-    helpDifficulty:"In Options you can choose whether to guess 2 or 3 of the researcher's top-cited works.",
+    helpDifficulty:"In Options you can choose whether to guess 2, 3, or 4 of the researcher's top-cited works.",
     btnBack:"← Back",
-    orcidLabel:"ORCID iD of the researcher",
-    orcidHint:"e.g. 0000-0001-6797-5476 — we automatically fetch the top-cited works (incl. publisher) via OpenAlex",
-    btnFetch:"Load Publications",
-    searchToggle:"Don't know the ORCID? Search by name →",
-    searchPlaceholder:"e.g. Brian Nosek",
-    btnSearch:"Search",
+    orcidLabel:"Name or ORCID iD of the researcher",
+    orcidHint:"We automatically fetch the top-cited works (incl. publisher) via OpenAlex",
+    btnFetch:"Search",
     searchNoResults:"No matches found.",
     searchNoOrcid:"no ORCID on file",
     searchUseBtn:"Use",
-    searchOrcidApplied:"ORCID applied: {o}",
-    fieldGuessCountLabel:"Publishers to guess", fieldGuessCountHint:"Use the researcher's top 2 or top 3 most-cited works",
+    fieldGuessCountLabel:"Publishers to guess", fieldGuessCountHint:"Use the researcher's top 2, 3, or 4 most-cited works",
     fieldRoundsLabel:"Rounds until Game Over", fieldRoundsHint:"How many attempts before it's over",
     fieldInfiniteLabel:"Infinite rounds",
     fieldTimerLabel:"Timer per round",
@@ -656,7 +631,6 @@ const STR = {
     confirmYes:"Yes, give up", confirmCancel:"Cancel",
     fetchPending:"Loading publication data from OpenAlex …",
     fetchOk:"✓ Loaded {n} publications by {name} (cited {c}×)",
-    errInvalidOrcid:"Please enter a valid ORCID iD in the format 0000-0000-0000-0000.",
     errAuthorNotFound:"No OpenAlex record was found for this ORCID iD.",
     errNetworkAuthor:"Network error while loading author data. Please check your connection and try again.",
     errNetworkWorks:"Network error while loading publications. Please check your connection and try again.",
@@ -669,8 +643,7 @@ const STR = {
     biblioRankMeta:"{rank} · {c} citations per OpenAlex"
   },
   de: {
-    kicker:"Publish or Perish · Verlags-Ratespiel für die Wissenschaft",
-    appTitle:"Publish or Perish",
+    appTitle:'Mastermind "Verlags-Version"',
     orcidPrefix:"ORCID:",
     startPlay:"Spielen", startOptions:"Optionen", startHelp:"Spielanleitung",
     helpTitle:"So wird gespielt",
@@ -680,19 +653,15 @@ const STR = {
     helpWhite:"Umrandeter Punkt: richtiger Verlag, falscher Rang.",
     helpJoker:"Ein Joker verrät zufällig den Verlag für einen Rang.",
     helpTimer:"Bei aktivem Timer musst du deine Reihe rechtzeitig abschließen, sonst wird sie automatisch abgeschickt.",
-    helpDifficulty:"In den Optionen kannst du wählen, ob du 2 oder 3 der meistzitierten Werke erraten sollst.",
+    helpDifficulty:"In den Optionen kannst du wählen, ob du 2, 3 oder 4 der meistzitierten Werke erraten sollst.",
     btnBack:"← Zurück",
-    orcidLabel:"ORCID iD der Forscherin / des Forschers",
-    orcidHint:"z. B. 0000-0001-6797-5476 — wir laden automatisch die meistzitierten Werke (inkl. Verlag) über OpenAlex",
-    btnFetch:"Publikationen laden",
-    searchToggle:"ORCID unbekannt? Nach Namen suchen →",
-    searchPlaceholder:"z. B. Brian Nosek",
-    btnSearch:"Suchen",
+    orcidLabel:"Name oder ORCID iD der Forscherin / des Forschers",
+    orcidHint:"Wir laden automatisch die meistzitierten Werke (inkl. Verlag) über OpenAlex",
+    btnFetch:"Suchen",
     searchNoResults:"Keine Treffer gefunden.",
     searchNoOrcid:"keine ORCID hinterlegt",
     searchUseBtn:"Übernehmen",
-    searchOrcidApplied:"ORCID übernommen: {o}",
-    fieldGuessCountLabel:"Zu erratende Verlage", fieldGuessCountHint:"Nutze die 2 oder 3 meistzitierten Werke der Person",
+    fieldGuessCountLabel:"Zu erratende Verlage", fieldGuessCountHint:"Nutze die 2, 3 oder 4 meistzitierten Werke der Person",
     fieldRoundsLabel:"Runden bis Game Over", fieldRoundsHint:"Nach wie vielen Versuchen ist Schluss",
     fieldInfiniteLabel:"Unendlich viele Runden",
     fieldTimerLabel:"Timer pro Runde",
@@ -712,7 +681,6 @@ const STR = {
     confirmYes:"Ja, aufgeben", confirmCancel:"Abbrechen",
     fetchPending:"Lade Publikationsdaten von OpenAlex …",
     fetchOk:"✓ {n} Publikationen von {name} geladen (zitiert {c}×)",
-    errInvalidOrcid:"Bitte eine gültige ORCID iD im Format 0000-0000-0000-0000 eingeben.",
     errAuthorNotFound:"Für diese ORCID iD wurden keine Daten bei OpenAlex gefunden.",
     errNetworkAuthor:"Netzwerkfehler beim Laden der Autor:innen-Daten. Bitte Verbindung prüfen und erneut versuchen.",
     errNetworkWorks:"Netzwerkfehler beim Laden der Publikationen. Bitte Verbindung prüfen und erneut versuchen.",
@@ -733,6 +701,7 @@ function t(key, params){
 }
 function applyLang(){
   document.documentElement.lang = LANG;
+  if (!state.researcher) document.title = t("appTitle");
   document.querySelectorAll("[data-i18n]").forEach(el=>{
     const key = el.dataset.i18n;
     if (el.children.length){
@@ -920,7 +889,7 @@ function evaluateGuess(guess, secret){
 
 /* ============== state ============== */
 const state = {
-  guessCount:3, roundsIdx:10, timer:false, timerSec:60, jokers:0,
+  guessCount:4, roundsIdx:10, timer:false, timerSec:60, jokers:0,
   researcher:null, secretKeys:[], palette:[],
   guesses:[], activeRow:0,
   jokersLeft:0, revealed:{},
@@ -1024,20 +993,22 @@ function showConfirm(text, yesLabel, noLabel, onYes){
   $("confirmNoBtn").addEventListener("click", onNoClick);
 }
 
-/* ============== ORCID fetch flow ============== */
+/* ============== ORCID fetch / name search (unified field) ============== */
 let pendingResearcher = null;
-$("fetchBtn").addEventListener("click", ()=>{ doFetch(); });
-orcidInput.addEventListener("keydown", e=>{ if (e.key==="Enter") doFetch(); });
+$("fetchBtn").addEventListener("click", ()=>{ doSearchOrFetch(); });
+orcidInput.addEventListener("keydown", e=>{ if (e.key==="Enter") doSearchOrFetch(); });
 orcidInput.value = "0000-0002-6446-1901";
 
-async function doFetch(){
-  const orcid = normalizeOrcid(orcidInput.value);
-  if (!isValidOrcid(orcid)){
-    fetchStatus.className = "fetch-status err";
-    fetchStatus.textContent = t("errInvalidOrcid");
-    startBtn.disabled = true; pendingResearcher = null;
-    return;
-  }
+function doSearchOrFetch(){
+  const raw = orcidInput.value.trim();
+  if (!raw) return;
+  $("searchResults").innerHTML = "";
+  const orcid = normalizeOrcid(raw);
+  if (isValidOrcid(orcid)) doFetch(orcid);
+  else doNameSearch(raw);
+}
+
+async function doFetch(orcid){
   fetchStatus.className = "fetch-status pending";
   fetchStatus.textContent = t("fetchPending");
   startBtn.disabled = true;
@@ -1059,18 +1030,9 @@ async function doFetch(){
   }
 }
 
-/* ============== person search ============== */
-$("searchToggleBtn").addEventListener("click", ()=>{
-  const box = $("searchBox");
-  box.style.display = box.style.display==="none" || !box.style.display ? "block" : "none";
-});
-$("nameSearchBtn").addEventListener("click", ()=>{ doNameSearch(); });
-$("nameInput").addEventListener("keydown", e=>{ if (e.key==="Enter") doNameSearch(); });
-
-async function doNameSearch(){
-  const name = $("nameInput").value.trim();
+async function doNameSearch(name){
   const resultsEl = $("searchResults");
-  if (!name){ return; }
+  fetchStatus.className = ""; fetchStatus.textContent = "";
   resultsEl.innerHTML = "<div class='fetch-status pending'>"+t("fetchPending")+"</div>";
   try{
     const res = await fetch("https://api.openalex.org/authors?search="+encodeURIComponent(name)+"&per_page=5&mailto="+OA_MAILTO);
@@ -1097,8 +1059,8 @@ async function doNameSearch(){
         btn.addEventListener("click", ()=>{
           const orcid = normalizeOrcid(orcidUrl);
           orcidInput.value = orcid;
-          toast(t("searchOrcidApplied",{o:orcid}));
-          $("searchBox").style.display = "none";
+          resultsEl.innerHTML = "";
+          doFetch(orcid);
         });
         row.appendChild(btn);
       } else {
@@ -1162,7 +1124,7 @@ function emptyGuess(){ return new Array(state.guessCount).fill(null); }
 function buildRankLabels(){
   const wrap = $("rankLabels");
   wrap.innerHTML = "";
-  const labels = [t("rankMost"),"#2","#3"].slice(0, state.guessCount);
+  const labels = [t("rankMost"),"#2","#3","#4"].slice(0, state.guessCount);
   labels.forEach(l=>{
     const s = document.createElement("span");
     s.textContent = l;
@@ -1376,7 +1338,7 @@ function finishGame(won){
   const biblio = $("biblio");
   biblio.innerHTML = "";
 
-  const rankLabels = [t("rankMost"),"#2","#3"].slice(0, state.guessCount);
+  const rankLabels = [t("rankMost"),"#2","#3","#4"].slice(0, state.guessCount);
   state.researcher.works.slice(0, state.guessCount).forEach((w,i)=>{
     const item = document.createElement("div");
     item.className = "biblio-item";
@@ -1414,6 +1376,7 @@ $("newGameBtn").addEventListener("click", ()=>{
   state.researcher = null;
   fetchStatus.className = "fetch-status";
   fetchStatus.textContent = "";
+  $("searchResults").innerHTML = "";
   startBtn.disabled = true;
 });
 
