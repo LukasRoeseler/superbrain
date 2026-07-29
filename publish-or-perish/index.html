@@ -99,11 +99,6 @@ h1.researcher-name{
 /* ================= START / HELP ================= */
 #startScreen, #helpScreen{ width: min(560px, 94vw); margin-bottom: 20px; }
 #helpScreen{ display:none; }
-.demo-badge{
-  display:inline-block; width:18px; height:18px; border-radius:5px;
-  vertical-align:middle; margin-right:6px; border:1px solid var(--paper-edge);
-  background: var(--maroon);
-}
 .demo-fpeg{
   display:inline-block; width:14px; height:14px; border-radius:50%;
   vertical-align:middle; margin-right:6px;
@@ -443,8 +438,8 @@ input.chk{ width:22px; height:22px; accent-color: var(--maroon); cursor:pointer;
       <div class="row">
         <div class="row-num">1</div>
         <div class="slots">
-          <div class="slot filled"><div class="demo-badge" style="background:#c0392b;"></div></div>
-          <div class="slot filled"><div class="demo-badge" style="background:#2f6fd6;"></div></div>
+          <div class="slot filled"><img src="https://www.google.com/s2/favicons?sz=64&domain=elsevier.com" alt="Elsevier"></div>
+          <div class="slot filled"><img src="https://www.google.com/s2/favicons?sz=64&domain=springernature.com" alt="Springer Nature"></div>
           <div class="slot"></div>
         </div>
         <div class="feedback"><div class="fpeg black"></div><div class="fpeg white"></div></div>
@@ -452,7 +447,7 @@ input.chk{ width:22px; height:22px; accent-color: var(--maroon); cursor:pointer;
       <div class="row">
         <div class="row-num">2</div>
         <div class="slots">
-          <div class="slot filled"><div class="demo-badge" style="background:#9c7a33;"></div></div>
+          <div class="slot filled"><img src="https://www.google.com/s2/favicons?sz=64&domain=wiley.com" alt="Wiley"></div>
           <div class="slot"></div>
           <div class="slot"></div>
         </div>
@@ -947,10 +942,9 @@ $("goOptionsBtn").addEventListener("click", ()=>{ showScreen("setup"); });
 $("goHelpBtn").addEventListener("click", ()=>{ showScreen("help"); });
 $("helpBackBtn").addEventListener("click", ()=>{ showScreen("start"); });
 $("setupBackBtn").addEventListener("click", ()=>{ showScreen("start"); });
-$("goPlayBtn").addEventListener("click", async ()=>{
+$("goPlayBtn").addEventListener("click", ()=>{
+  if (pendingResearcher){ beginGame(); return; }
   showScreen("setup");
-  await doFetch();
-  if (pendingResearcher) beginGame();
 });
 
 /* ============== setup UI ============== */
