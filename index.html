@@ -101,6 +101,15 @@ h1.title{
 .fpeg-demo.black{ background: radial-gradient(circle at 35% 30%, #444, #050505 70%); }
 .fpeg-demo.white{ background: radial-gradient(circle at 35% 30%, #fff, #cfc9b8 70%); }
 
+.credit{
+  text-align:center;
+  font-size:0.72rem;
+  color: rgba(43,28,16,0.65);
+  margin: 14px 0 0;
+}
+.credit a{ color: rgba(43,28,16,0.85); border-bottom: 1px dotted rgba(43,28,16,0.5); text-decoration:none; }
+.credit a:hover{ color: #2b1c10; }
+
 /* ================= SETUP SCREEN ================= */
 #setupScreen{
   width: min(560px, 94vw);
@@ -533,7 +542,7 @@ input.chk{
 <body>
 
 <button type="button" id="langToggle" class="lang-btn">EN</button>
-<h1 class="title engraved">SUPERHIRN</h1>
+<h1 class="title engraved" data-i18n="title">SUPERHIRN</h1>
 
 <!-- ===================== START ===================== -->
 <div id="startScreen" class="wood-card">
@@ -571,6 +580,7 @@ input.chk{
     <button type="button" class="btn secondary" id="goOptionsBtn" data-i18n="startOptions">Optionen</button>
     <button type="button" class="btn secondary" id="goHelpBtn" data-i18n="startHelp">Spielanleitung</button>
   </div>
+  <p class="credit" data-i18n-html="originalCredit"></p>
 </div>
 
 <!-- ===================== HELP ===================== -->
@@ -742,6 +752,8 @@ input.chk{
 /* ============== i18n ============== */
 const STR = {
   de: {
+    title:"SUPERHIRN",
+    originalCredit:'Basierend auf dem Brettspiel <a href="https://en.wikipedia.org/wiki/Mastermind_(board_game)" target="_blank" rel="noopener">Mastermind</a> von Mordecai Meirowitz (1970).',
     startPlay:"Spielen", startOptions:"Optionen", startHelp:"Spielanleitung",
     helpTitle:"So wird gespielt",
     helpP1:"Der Computer versteckt einen geheimen Farbcode aus mehreren Steckern. Du versuchst, ihn in möglichst wenigen Runden zu erraten.",
@@ -780,6 +792,8 @@ const STR = {
     colors:["Rot","Blau","Gelb","Grün","Orange","Lila","Weiß","Schwarz"]
   },
   en: {
+    title:"MASTERMIND",
+    originalCredit:'Based on the board game <a href="https://en.wikipedia.org/wiki/Mastermind_(board_game)" target="_blank" rel="noopener">Mastermind</a> by Mordecai Meirowitz (1970).',
     startPlay:"Play", startOptions:"Options", startHelp:"How to Play",
     helpTitle:"How to play",
     helpP1:"The computer hides a secret color code made of several pegs. Try to guess it in as few rounds as possible.",
@@ -826,6 +840,7 @@ function t(key, params){
 }
 function applyLang(){
   document.documentElement.lang = LANG;
+  document.title = t("title");
   document.querySelectorAll("[data-i18n]").forEach(el=>{
     const key = el.dataset.i18n;
     if (el.children.length){
@@ -838,6 +853,7 @@ function applyLang(){
     }
   });
   document.querySelectorAll("[data-i18n-ph]").forEach(el=>{ el.placeholder = t(el.dataset.i18nPh); });
+  document.querySelectorAll("[data-i18n-html]").forEach(el=>{ el.innerHTML = t(el.dataset.i18nHtml); });
   $("langToggle").textContent = LANG==="de" ? "EN" : "DE";
   localStorage.setItem("sh_lang", LANG);
   refreshDynamicTexts();
